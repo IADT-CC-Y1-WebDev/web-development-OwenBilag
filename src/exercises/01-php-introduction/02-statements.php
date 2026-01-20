@@ -99,6 +99,13 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        $x = rand(1, 10);
+
+        for ($i = 0; $i <= 10; $i++) {
+            $z = $x * $i;
+            echo "<p> $x x $i = $z </p>";
+        }
         ?>
     </div>
 
