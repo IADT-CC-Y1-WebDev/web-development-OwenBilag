@@ -27,6 +27,21 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        $age = 19;
+        $ageGroup;
+
+        if ($age <= 12 && $age >= 0) {
+            $ageGroup = "Child";
+        } else if($age >= 13 && $age <= 19) {
+            $ageGroup = "Teenager";
+        } else if($age >= 20 && $age <= 64) {
+            $ageGroup = "Adult";
+        } else {
+            $ageGroup = "Senior";
+        }
+
+        echo "Your age is $age and your age group is $ageGroup";
         ?>
     </div>
 
@@ -43,6 +58,32 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        $weekDay = rand(1,7);
+
+        switch ($weekDay) {
+            case 1: 
+                echo "Today is Monday" . " Today is a weekday<br/>";
+                break;
+            case 2: 
+                echo "Today is Tuesday" . " Today is a weekday<br/>";
+                break;
+            case 3: 
+                echo "Today is Wednesday" . " Today is a weekday<br/>";
+                break;
+            case 4: 
+                echo "Today is Thursday" . " Today is a weekday<br/>";
+                break;
+            case 5: 
+                echo "Today is Friday" . " Today is a weekday<br/>";
+                break;
+            case 6: 
+                echo "Today is Saturday" . " Today is a weekend<br/>";
+                break;
+            case 7: 
+                echo "Today is Sunday" . " Today is a weekend<br/>";
+                break;
+        }
         ?>
     </div>
 
