@@ -29,8 +29,10 @@
         // TODO: Write your solution here
         $firstName = "Owen";
         $lastName = "Bilag";
+        $age = 19;
+        $city = "Foxrock";
 
-        echo "My name is $firstName $lastName";
+        echo "My name is $firstName $lastName, I am $age years old and I live in $city.";
         ?>
     </div>
 
