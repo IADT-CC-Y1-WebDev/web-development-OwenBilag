@@ -79,6 +79,28 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        $isStudent = true;
+        $hasDiscount = false;
+        $isPremiumMember = true;
+
+        if ($isStudent === true){
+            echo "Is student?: yes ";
+        } else {
+            echo "Is student?: no ";
+        };
+
+        if ($hasDiscount === true){
+            echo "Has Discount?: yes ";
+        } else {
+            echo "Has discount?: no ";
+        };
+
+        if ($isPremiumMember === true){
+            echo "Is premium member?: yes ";
+        } else {
+            echo "Is premium member?: no ";
+        };
         ?>
     </div>
 
