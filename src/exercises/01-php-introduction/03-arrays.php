@@ -27,6 +27,13 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        $movie = ['Alice in wonderland', 'Princess and the frog', 'The little mermaid', 'Peter Pan', 'Tangled'];
+
+        for($i = 0; $i <= 4; $i++){
+            $movieNum = $i + 1;
+            echo "<p>Movie $movieNum: $movie[$i] </p>";
+        }
         ?>
     </div>
 
