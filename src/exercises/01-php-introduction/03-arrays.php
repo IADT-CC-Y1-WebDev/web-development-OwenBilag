@@ -49,6 +49,15 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        $studentRecord = [
+            "name" => "John Fella",
+            "studentID" => "N0035478",
+            "Course" => "Creative Computing",
+            "Grade" => "D",
+        ]
+
+        echo "$studentRecord['name'], $studentRecord['studentID'], $studentRecord['course'], $studentRecord['grade']";
         ?>
     </div>
 
