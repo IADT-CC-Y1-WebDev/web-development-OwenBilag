@@ -50,6 +50,20 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        $price1 = 5.99;
+        $price2 = 3.50;
+        $price3 = 2.40;
+        $quantity1 = 3;
+        $quantity2 = 5;
+        $quantity3 = 2;
+        $discount = 0.9;
+        $totalPrice1 = $price1*$quantity1;
+        $totalPrice2 = $price2*$quantity2;
+        $totalPrice3 = $price3*$quantity3;
+        $totalPrice = (($price1*$quantity1)+($price2*$quantity2)+($price3*$quantity3))*$discount;
+        
+        echo "Total: $totalPrice";
         ?>
     </div>
 
