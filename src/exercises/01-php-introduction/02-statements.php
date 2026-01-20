@@ -121,6 +121,15 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        $time = 10;
+
+        while($time > 0) {
+            echo "<p>$time!</p>";
+            $time = $time - 1;
+        } 
+
+        echo "Blast Off!"
         ?>
     </div>
 
