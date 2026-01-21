@@ -109,6 +109,20 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        $menu = [
+            "starter" => [
+                "Soup" => 6.50,
+                "Garlic Bread" => 4.50,
+                "Chicken Skewers" => 8
+            ],
+            "Main Course" => [
+                "Steak and chips" => 20,
+                "Chicken curry and rice" => 15,
+                "Paella" => 13
+            ]
+        ]
+                
         ?>
     </div>
 
