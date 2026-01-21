@@ -28,7 +28,13 @@
         <?php
         // TODO: Write your solution here
 
-        $movie = ['Alice in wonderland', 'Princess and the frog', 'The little mermaid', 'Peter Pan', 'Tangled'];
+        $movie = [
+                'Alice in wonderland', 
+                'Princess and the frog', 
+                'The little mermaid', 
+                'Peter Pan', 
+                'Tangled'
+            ];
 
         for($i = 0; $i <= 4; $i++){
             $movieNum = $i + 1;
@@ -51,13 +57,13 @@
         // TODO: Write your solution here
 
         $studentRecord = [
-            "name" => "John Fella",
-            "studentID" => "N0035478",
-            "Course" => "Creative Computing",
-            "Grade" => "D",
-        ]
+            'name' => "John Fella",
+            'studentID' => "N0035478",
+            'course' => "Creative Computing",
+            'grade' => "D"
+        ];
 
-        echo "$studentRecord['name'], $studentRecord['studentID'], $studentRecord['course'], $studentRecord['grade']";
+        echo "{$studentRecord['name']}, {$studentRecord['studentID']}, {$studentRecord['course']}, {$studentRecord['grade']}";
         ?>
     </div>
 
@@ -74,6 +80,18 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        $countries = [
+            "Ireland" => "Dublin",
+            "Philipeanes" => "Manilia",
+            "Spain" => "Madrid",
+            "England" => "London",
+            "Scotland" => "Glasgow"
+        ];
+
+        foreach ($countries as $country => $capital) {
+            echo "<p>The capital of $country is $capital</p>";
+        }
         ?>
     </div>
 
