@@ -25,6 +25,12 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+        function celsiusToFahrenheit($tempretureC) {
+            $tempretureF = ($tempretureC * 9/5) + 32;
+            echo "$tempretureF";
+        }
+
+        celsiusToFahrenheit(89);
         ?>
     </div>
 
