@@ -47,6 +47,16 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+        function calculateRectangleArea($width, $height){
+            if ($height === 0) {
+                $height = $width;
+            }
+            $area = $width * $height;
+
+            echo "$area units Sq";
+        };
+
+        calculateRectangleArea(30);
         ?>
     </div>
 
