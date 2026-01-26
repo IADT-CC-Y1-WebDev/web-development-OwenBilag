@@ -123,6 +123,14 @@
             ]
         ]
                 
+        foreach ($menu as $section => $catagory) {
+            echo "<p> $section </p>";
+            echo "<ul>";
+                foreach ($catagory as $food => $price) {
+                    "<li> $food: £$price </li>";
+                }
+            echo "</ul>";
+        }
         ?>
     </div>
 
