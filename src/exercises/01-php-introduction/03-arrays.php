@@ -111,23 +111,23 @@
         // TODO: Write your solution here
 
         $menu = [
-            "starter" => [
+            'Starter' => [
                 "Soup" => 6.50,
                 "Garlic Bread" => 4.50,
                 "Chicken Skewers" => 8
             ],
-            "Main Course" => [
+            'Main Course' => [
                 "Steak and chips" => 20,
                 "Chicken curry and rice" => 15,
                 "Paella" => 13
             ]
-        ]
-                
+            ];
+
         foreach ($menu as $section => $catagory) {
             echo "<p> $section </p>";
             echo "<ul>";
                 foreach ($catagory as $food => $price) {
-                    "<li> $food: £$price </li>";
+                    echo "<li> $food: £$price </li>";
                 }
             echo "</ul>";
         }
