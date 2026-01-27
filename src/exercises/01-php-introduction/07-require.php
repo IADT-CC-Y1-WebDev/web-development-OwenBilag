@@ -51,6 +51,10 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+        require_once 'lib/formatters.php';
+        formatPhoneNumber(348675);
+        require_once 'lib/validators.php';
+        isValidEmail('N00253477@iadt.ie');
         ?>
     </div>
 
