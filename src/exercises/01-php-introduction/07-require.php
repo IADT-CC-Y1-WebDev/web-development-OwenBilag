@@ -34,6 +34,12 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        require_once 'lib/utilities.php';
+
+        truncate("Hello", 2);
+        formatPrice(23.5);
+        getCurrentYear();
         ?>
     </div>
 
