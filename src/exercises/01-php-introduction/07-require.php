@@ -22,6 +22,7 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+        require 'inc/navigation.php';
         ?>
     </div>
 
