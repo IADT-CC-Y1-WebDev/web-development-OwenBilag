@@ -84,7 +84,15 @@
     <p class="output-label">Output:</p>
     <div class="output">
         <?php
-        // TODO: Write your solution here
+        // TODO: Write your solution her
+        $message = "Global";
+
+        function testScope($message) {
+            echo "$message";
+        };
+
+        testScope("Local ");
+        echo "$message";
         ?>
     </div>
 
