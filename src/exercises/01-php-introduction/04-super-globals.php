@@ -47,6 +47,11 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+        if (empty($_GET['name']) === true) {
+            echo "Hello, Guest!";
+        } else {
+            echo "Hello " . $_GET['name'];
+        }
         ?>
     </div>
 
