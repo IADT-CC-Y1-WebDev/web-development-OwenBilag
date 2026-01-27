@@ -27,6 +27,10 @@
     <div class="output">
         <pre><?php
         // TODO: Write your solution here
+        echo "<p> PHP_SELF:" . $_SERVER['PHP_SELF'] . "</p>";
+        echo "<p> REQUEST METHOD:" . $_SERVER['REQUEST_METHOD'] . "</p>";
+        echo "<p> HTTP_HOST:" . $_SERVER['HTTP_HOST'] . "</p>";
+        echo "<p> HTTP_USER_AGENT:" . $_SERVER['HTTP_USER_AGENT'] . "</p>";
         ?></pre>
     </div>
 
