@@ -47,8 +47,8 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
-        function calculateRectangleArea($width, $height){
-            if ($height === 0) {
+        function calculateRectangleArea($width, $height=""){
+            if (empty($height) === true) {
                 $height = $width;
             }
             $area = $width * $height;
@@ -73,6 +73,16 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+        function checkEvenOdd($num) {
+            $num1 = $num % 2;
+            if ($num1 === 1) {
+                echo "Number is odd";
+            } else {
+                echo "Number is even";
+            };
+        }
+
+        checkEvenOdd(1);
         ?>
     </div>
 
