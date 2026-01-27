@@ -69,6 +69,11 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+        if (empty($_REQUEST['quantity']) || empty($_REQUEST['product'])) {
+            echo "Quantity or Product missing, check for error";
+        } else {
+            echo "You orderered " . $_REQUEST['quantity'] . " " . $_REQUEST['product'] . "s";
+        };
         ?>
     </div>
 
