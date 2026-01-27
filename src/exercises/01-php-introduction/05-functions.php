@@ -99,6 +99,15 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+        function getArrayStats($array) {
+            $min = min($array);
+            $max = max($array);
+            $avg = array_sum($array)/count($array);
+
+            echo "<p> Minimum: $min </p> <p> Maximum: $max </p> <p> Average: $avg </p>";
+        }
+
+        getArrayStats([12, 20, 7, 12]);
         ?>
     </div>
 
