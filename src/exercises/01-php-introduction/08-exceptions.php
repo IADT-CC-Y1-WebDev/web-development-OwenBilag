@@ -64,6 +64,25 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+        function validateEmail($email) {
+            if (str_contains($email, "@")) {
+                echo "$email is Valid Email </br>";               
+            } else {
+                throw new Exception("Invalid Email: Missing @"); 
+            } 
+        }
+
+        $emailTest = ["user@example.com", "invalid-email", "test@test.ie"];
+
+        foreach($emailTest as $n){
+            try {
+                $emailCheck = validateEmail($n);
+            } 
+            catch(Exception $e) {
+                echo "Exception: " . $e -> getMessage() . "</br>";
+            }       
+        }
+
         ?>
     </div>
 
