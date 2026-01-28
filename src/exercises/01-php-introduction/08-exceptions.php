@@ -28,6 +28,25 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+
+        function calculateSquareRoot($number) {
+            if ($number < 0) {
+                throw new Exception("Can't square root a negative number");
+            };
+            return sqrt($number);
+        }
+
+        $numbers = [16, -9, 25];
+
+        foreach($numbers as $n) {
+            try {
+                $sqrt = calculateSquareRoot($n);
+                echo "The SQRT of $n is $sqrt<br/>";
+            }
+            catch(Exception $e) {
+                echo "Exception: ". $e->getMessage() . "<br/>";
+            }
+        }
         ?>
     </div>
 
