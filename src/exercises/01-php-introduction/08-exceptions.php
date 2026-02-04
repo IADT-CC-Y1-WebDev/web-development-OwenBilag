@@ -99,6 +99,9 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
+        function processFile ($filename) {
+            
+        }
         ?>
     </div>
 

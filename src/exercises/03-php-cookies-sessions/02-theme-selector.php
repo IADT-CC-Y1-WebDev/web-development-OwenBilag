@@ -11,6 +11,9 @@
 // Hint: Check if session is not already started, then call session_start()
 // -----------------------------------------------------------------------------
 // TODO: Start the session here
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // =============================================================================
 
@@ -23,7 +26,16 @@
 // 4. Call exit
 // -----------------------------------------------------------------------------
 // TODO: Handle cookie theme selection here
+if (isset($_GET['cookie_theme'])) {
+        $theme = $_GET['cookie_theme'];
 
+    // Store in cookie for 30 days
+    setcookie('theme', $theme, time() + (60 * 60 * 24 * 30), '/');
+
+    // Redirect to remove the query parameter
+    header('Location: 02-theme-selector.php');
+    exit;
+}
 // =============================================================================
 
 // =============================================================================
@@ -35,7 +47,15 @@
 // 4. Call exit
 // -----------------------------------------------------------------------------
 // TODO: Handle session theme selection here
+if (isset($_GET['session_theme'])) {
+    $theme = $_GET['session_theme'];
 
+    $_SESSION['theme'] = $theme;
+
+    // Redirect to remove the query parameter
+    header('Location: 02-theme-selector.php');
+    exit;
+}
 // =============================================================================
 
 // =============================================================================
@@ -44,7 +64,23 @@
 // For $_GET['reset_session']: unset $_SESSION['theme']
 // -----------------------------------------------------------------------------
 // TODO: Handle reset actions here
+if (isset($_GET['reset_cookie'])) {
+    $now = time();
+    $expiry = $time - 3600;
+    setcookie('theme', '', $expiry, '/');
 
+    // Redirect to remove the query parameter
+    header('Location: 02-theme-selector.php');
+    exit;
+}
+
+if (isset($_GET['reset_session'])) {
+    unset($_SESSION['theme']);
+
+    // Redirect to remove the query parameter
+    header('Location: 02-theme-selector.php');
+    exit;
+}
 // =============================================================================
 
 // Get current theme values (these are provided for you)
@@ -56,7 +92,7 @@ $themes = [
     'light' => ['bg' => '#ffffff', 'text' => '#333333'],
     'dark' => ['bg' => '#1a1a2e', 'text' => '#eaeaea'],
     'blue' => ['bg' => '#e3f2fd', 'text' => '#1565c0'],
-    'green' => ['bg' => '#e8f5e9', 'text' => '#2e7d32'],
+    'green' => ['bg' => '#cee9d0ff', 'text' => '#2e7d32'],
 ];
 
 // =============================================================================
@@ -65,6 +101,9 @@ $themes = [
 // TODO: Determine which theme to apply (cookie takes precedence over session)
 
 // =============================================================================
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
