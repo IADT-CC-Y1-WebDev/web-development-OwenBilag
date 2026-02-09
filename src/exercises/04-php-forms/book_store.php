@@ -37,7 +37,9 @@ try {
     // See: /examples/04-php-forms/step-02-request-method/
     // =========================================================================
     // TODO: Check that the request method is POST
-
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        throw new Exception('Invalid request method');
+    }
 
     // =========================================================================
     // STEP 3: Extract Data
@@ -85,7 +87,10 @@ try {
 
     if ($validator->fails()) {
         // Get all validation errors and terminate
-        dd($validator->errors(), true);
+        foreach ($validator->errors() as $field => $fieldErrors) {
+            $errors[$field] = $fieldErrors[0];
+        }
+        throw new Exception('Validation failed.');
 
     };
     echo "Validation Successful!";
@@ -128,14 +133,14 @@ catch (Exception $e) {
     // =========================================================================
     // TODO: In the catch block, store validation errors in the session
     // TODO: Redirect back to the form
-
-
+    setFormErrors($errors);
+    
     // =========================================================================
     // STEP 6: Store Form Data for Repopulation
     // See: /examples/04-php-forms/step-06-repopulate-fields/
     // =========================================================================
     // TODO: Before redirecting on error, also store the form data
-
+    setFormData($data);
 
     // =========================================================================
     // STEP 8: Flash Messages
@@ -143,5 +148,5 @@ catch (Exception $e) {
     // =========================================================================
     // TODO: On validation error, you set an error flash message
 
-    
+    redirect("book_create.php");
 }
