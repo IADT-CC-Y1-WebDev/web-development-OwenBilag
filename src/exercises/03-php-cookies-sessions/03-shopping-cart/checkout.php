@@ -20,7 +20,7 @@ if (session_status() === PHP_SESSION_NONE) {
 // Exercise 2: Initialize the cart
 // -----------------------------------------------------------------------------
 // TODO: Write your code here
-
+$cart = ShoppingCart::getInstance();
 // =============================================================================
 
 // Variable to track if order is complete
@@ -33,7 +33,10 @@ $orderCompleted = false;
 // 2. Clear the cart
 // -----------------------------------------------------------------------------
 // TODO: Write your code here
-
+if (isset($_GET['complete']) && !$cart -> isEmpty()) {
+    $orderCompleted = true;
+    $cart -> clear();
+}
 // =============================================================================
 
 // Calculate totals
