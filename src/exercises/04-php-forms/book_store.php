@@ -30,7 +30,7 @@ try {
     // See: /examples/04-php-forms/step-01-form-submission/
     // =========================================================================
     // TODO: First, just dump the posted data to see what's submitted
-
+    dd($_POST);
 
     // =========================================================================
     // STEP 2: Check Request Method
@@ -50,8 +50,17 @@ try {
     // checkboxes can be selected. This is already handled in the $data 
     // extraction:
     // 'format_ids' => $_POST['format_ids'] ?? []
+    $data = [
+        'title' => $_POST['title'] ?? null,
+        'author' => $_POST['author'] ?? null,
+        'publisher_id' => $_POST['publisher_id'] ?? null,
+        'year' => $_POST['year'] ?? null,
+        'isbn' => $_POST['isbn'] ?? null,
+        'format_ids' => $_POST['format_ids'] ?? [],
+        'description' => $_POST['description'] ?? null,
+    ];
 
-
+    dd($data);
     // =========================================================================
     // STEP 4: Validate Data
     // See: /examples/04-php-forms/step-04-validation/
@@ -59,9 +68,27 @@ try {
     // TODO: Define validation rules for each field
     // TODO: Check validation data against the rules
     // Create validator and check if validation fails; if so, store the first 
-    // error for each field in the $errors array and throw an exception
+    // error for each field in the $e
+    // rrors array and throw an exception
+    $year = date('Y');
+    $rules = [
+        'title' => "required|noempty|min:5|max:255",
+        'author' => "required|noempty|min:5|max:255",
+        'publisher_id' => "required|noempty|integer",
+        'year' => "required|noempty|integer|minvalue:1900|maxvalue:" . $year, 
+        'isbn' =>  "required|noempty|min:13|max:13",
+        'format_ids' => "required|noempty|array|minvalue:1|maxvalue:4",
+        'description' => "required|noempty|min:10",
+    ];
 
+    $validator = new Validator($data, $rules);
 
+    if ($validator->fails()) {
+        // Get all validation errors and terminate
+        dd($validator->errors(), true);
+
+    };
+    echo "Validation Successful!";
     // =========================================================================
     // STEP 9: File Uploads
     // See: /examples/04-php-forms/step-09-file-uploads/
