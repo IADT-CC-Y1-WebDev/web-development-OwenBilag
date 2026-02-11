@@ -35,6 +35,17 @@
         // Step 2: Require the file
         // require_once __DIR__ . '/classes/Student.php';
         // Step 3: Create a student and display their details
+        require_once "classes/classes/Student.php";
+
+        //New Student
+        $student = new Student();
+
+        //properties
+        $student->name = "David";
+        $student->number = 48335523513;
+
+        echo "Student Name: " . $student->name . "<br>";
+        echo "Student Number: " . $student->number;
         ?>
     </div>
 
