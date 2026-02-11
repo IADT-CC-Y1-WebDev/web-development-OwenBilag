@@ -30,7 +30,7 @@ try {
     // See: /examples/04-php-forms/step-01-form-submission/
     // =========================================================================
     // TODO: First, just dump the posted data to see what's submitted
-    dd($_POST);
+    // dd($_POST);
 
     // =========================================================================
     // STEP 2: Check Request Method
@@ -63,7 +63,7 @@ try {
         'cover' => $_FILES['cover'] ?? null     
     ];
 
-    dd($data);
+    // dd($data);
     // =========================================================================
     // STEP 4: Validate Data
     // See: /examples/04-php-forms/step-04-validation/
@@ -99,8 +99,7 @@ try {
     $uploader = new ImageUpload();
     $imageFilename = $uploader->process($_FILES['cover']);
 
-
-    echo "Validation Successful!";
+    // echo "Validation Successful!";
     // =========================================================================
     // STEP 9: File Uploads
     // See: /examples/04-php-forms/step-09-file-uploads/
@@ -132,6 +131,8 @@ try {
     // =========================================================================
     // TODO: On successful registration, set a success flash message and 
     // redirect back to the form
+
+    redirect("success.php");
 }
 catch (Exception $e) {
     // =========================================================================
