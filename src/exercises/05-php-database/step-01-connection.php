@@ -50,10 +50,23 @@ require_once __DIR__ . '/lib/config.php';
 
             try {
                 $db = new PDO($dsn, $username, $password);
-                echo "Your connection was a success!";
+                echo "Your connection was a success! <br>";
             } catch (PDOException $e) {
-                echo "Connection Failed: " . $e->getMessage();
+                echo "Connection Failed: " . $e->getMessage() . "<br>";
             }
+
+            $options = [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES   => false,
+            ];
+
+            try {
+                $db = new PDO($dsn, $username, $password, $options);
+                echo "Connected with options configured! <br>";
+            } catch (PDOException $e) {
+                echo "Connection failed: " . $e->getMessage() . "<br>";
+            }   
             ?>
         </div>
     </div>
