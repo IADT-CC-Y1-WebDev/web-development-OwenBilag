@@ -38,14 +38,10 @@
         require_once "classes/classes/Student.php";
 
         //New Student
-        $student = new Student();
+        $student = new Student("David", 4833);
 
-        //properties
-        $student->name = "David";
-        $student->number = 48335523513;
-
-        echo "Student Name: " . $student->name . "<br>";
-        echo "Student Number: " . $student->number;
+        echo "Student Name: " . $student -> name . "<br>";
+        echo "Student Number: " . $student -> number;
         ?>
     </div>
 
@@ -66,6 +62,11 @@
         <?php
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Student.php';
+        $student1 = new Student("James", 6587);
+        $student2 = new Student("Conan", 6767);
+
+        echo "Student Name: " . $student1 -> name. " " ."Student Number: " . $student1 -> number . "<br>";
+        echo "Student Name: " . $student2 -> name. " " ."Student Number: " . $student2 -> number . "<br>";
         ?>
     </div>
 
