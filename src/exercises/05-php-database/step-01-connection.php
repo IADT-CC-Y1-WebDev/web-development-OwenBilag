@@ -41,6 +41,13 @@ require_once __DIR__ . '/lib/config.php';
             // 2. Display success message
             // 3. Handle errors with try/catch
             
+            try {
+                $db = new PDO(DB_DSN, DB_USER, DB_PASS, DB_OPTIONS);
+                echo "Your configuration was successful! <br>";
+            } catch (PDOException $e) {
+                echo "Configuration failed: " . $e->getMessage() . "<br>";
+            }
+
             $host = 'mysql-container';
             $dbname = 'testdb';
             $username = 'testuser';
