@@ -48,6 +48,21 @@ catch (PDOException $e) {
             // 4. DELETE FROM books WHERE id = :id
             // 5. Check rowCount()
             // 6. Try to fetch the book again to verify deletion
+            $stmt = $db->prepare("
+                INSERT INTO books (title, author, year, description)
+                VALUES (:title, :author, :year, :description)
+            ");
+
+            $stmt->execute([
+                'title' => 'Temp Book',
+                'author' => 'Temp Name',
+                'year' => '2024',
+                'description' => 'Temporary book'
+            ]);
+
+            $newId = $db->lastInsertId();    
+            echo "Temporary Book with ID: " . $newId;
+
             ?>
         </div>
     </div>

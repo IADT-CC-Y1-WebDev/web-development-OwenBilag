@@ -65,7 +65,7 @@ catch (PDOException $e) {
                 $stmt->execute([
                     'title' => 'My Favorite Book',
                     'author' => 'Your Name',
-                    'year' => '2024'
+                    'year' => '2024',
                     'description' => 'A book I created for learning PDO'
                 ]);
 
