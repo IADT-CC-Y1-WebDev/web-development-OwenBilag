@@ -87,6 +87,13 @@
         <?php
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Student.php';
+
+        $student3 = new Student("Rory", 1919);
+
+        echo "Student ";
+        $student3->getName();
+        echo " has number ";
+        $student3->getNumber();
         ?>
     </div>
 
