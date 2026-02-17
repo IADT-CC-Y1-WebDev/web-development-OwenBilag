@@ -62,8 +62,31 @@ catch (PDOException $e) {
 
             $newId = $db->lastInsertId();    
             echo "Temporary Book with ID: " . $newId;
-
+            $stmt = $db->query("SELECT * FROM books WHERE id = $newId");
+            $books = $stmt->fetchAll();
             ?>
+            <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Year</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($books as $book): ?>
+                <tr>
+                    <td><?= $book['id'] ?></td>
+                    <td><?= htmlspecialchars($book['title']) ?></td>
+                    <td><?= htmlspecialchars($book['author']) ?></td>
+                    <td><?= $book['year'] ?></td>
+                    <td><?= htmlspecialchars(substr($book['description'], 0, 100)) ?></td>
+                </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
