@@ -47,6 +47,44 @@ catch (PDOException $e) {
             // 3. Execute with new description + timestamp
             // 4. Check rowCount()
             // 5. Fetch and display updated book
+            $stmt = $db->query("SELECT * FROM books WHERE id = 1");
+            $books = $stmt->fetchAll();
+            ?>
+            <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Year</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($books as $book): ?>
+                <tr>
+                    <td><?= $book['id'] ?></td>
+                    <td><?= htmlspecialchars($book['title']) ?></td>
+                    <td><?= htmlspecialchars($book['author']) ?></td>
+                    <td><?= $book['year'] ?></td>
+                    <td><?= htmlspecialchars(substr($book['description'], 0, 100)) ?></td>
+                </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+            <?php 
+            $stmt = $db->prepare("
+                UPDATE books
+                SET description = :description
+                WHERE id = :id
+            ");
+
+            $stmt->execute([
+                'description' => 'A grippting tale of racial injustice ... (Updated: ' . date('H:i:s') . ')',
+                'id' => 1
+            ]);
+
+            echo "Updated " . $stmt->rowCount() . " row(s)";
             ?>
         </div>
     </div>

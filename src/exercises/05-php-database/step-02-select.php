@@ -62,6 +62,7 @@ catch (PDOException $e) {
                     <th>Title</th>
                     <th>Author</th>
                     <th>Year</th>
+                    <th>Description</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,6 +72,7 @@ catch (PDOException $e) {
                     <td><?= htmlspecialchars($book['title']) ?></td>
                     <td><?= htmlspecialchars($book['author']) ?></td>
                     <td><?= $book['year'] ?></td>
+                    <td><?= htmlspecialchars(substr($book['description'], 0, 50)) ?>...</td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>

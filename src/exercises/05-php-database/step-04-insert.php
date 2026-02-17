@@ -58,14 +58,15 @@ catch (PDOException $e) {
             // 5. Display success message with the new ID
             try {
                 $stmt = $db->prepare("
-                    INSERT INTO books (title, author, year)
-                    VALUES (:title, :author, :year)
+                    INSERT INTO books (title, author, year, description)
+                    VALUES (:title, :author, :year, :description)
                 ");
 
                 $stmt->execute([
                     'title' => 'My Favorite Book',
                     'author' => 'Your Name',
                     'year' => '2024'
+                    'description' => 'A book I created for learning PDO'
                 ]);
 
                 if ($stmt->rowCount() === 1) {
