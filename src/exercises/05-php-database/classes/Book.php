@@ -66,6 +66,16 @@ class Book
     public static function findAll()
     {
         // TODO: Implement this method
+        $db = DB::getInstance()->getConnection();
+        $stmt = $db->prepare("SELECT * FROM books ORDER BY title");
+        $stmt->execute();
+
+        $books = [];
+        while ($row = $stmt->fetch()) {
+            $books[] = new Book($row);
+        }
+
+        return $books;
     }
 
     // =========================================================================
@@ -74,6 +84,16 @@ class Book
     public static function findById($id)
     {
         // TODO: Implement this method
+        $db = DB::getInstance()->getConnection();
+        $stmt = $db->prepare("SELECT * FROM books WHERE id = :id");
+        $stmt->execute(['id' => $id]);
+
+        $row = $stmt->fetch();
+        if ($row) {
+            return new Book($row);
+        }
+
+        return null;
     }
 
     // =========================================================================
@@ -82,6 +102,16 @@ class Book
     public static function findByPublisher($publisherId)
     {
         // TODO: Implement this method
+        $db = DB::getInstance()->getConnection();
+        $stmt = $db->prepare("SELECT * FROM books WHERE publisher_id = :publisher_id ORDER BY title");
+        $stmt->execute(['publisher_id' => $publisherId]);
+
+        $books = [];
+        while ($row = $stmt->fetch()) {
+            $books[] = new Book($row);
+        }
+
+        return $books;
     }
 
     // =========================================================================
