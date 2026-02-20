@@ -56,6 +56,8 @@
         <?php
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Student.php';
+        $student3 = new Student("Jen", 2013);
+        echo $student3;
         ?>
     </div>
 

@@ -15,6 +15,11 @@ class Student {
         }
     }
 
+    public function __toString() {
+        $format = "<br> Student: %s, (%f)";
+        return sprintf($format, $this->name, $this->number);
+    }
+
     public function getName() {
         echo $this->name;
     }
