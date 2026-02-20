@@ -79,6 +79,17 @@
         <?php
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Student.php';
+        $students = [
+            new Student("Jess", 4057),
+            new Student("Tom", 3021),
+            new Student("Kelly", 5996)
+        ];
+
+        echo "<ol>";
+        foreach ($students as $student) {
+            echo $student;
+        }
+        echo "</ol>";
         ?>
     </div>
 

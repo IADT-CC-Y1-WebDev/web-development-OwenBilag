@@ -5,13 +5,13 @@ class Student {
     
     public function __construct($name, $num){
         $this->name = $name;
-        echo "Creating student: " . $name;
+        echo "Creating student: " . $name . "<br>";
         $this->number = $num;
 
         if(empty($name)) {
-            throw new Exception ('Name cannot be empty! <br>');
+            throw new Exception ('Name cannot be empty!');
         } else if (empty($num)) {
-            throw new Exception ('Number cannot be empty! <br>');
+            throw new Exception ('Number cannot be empty!');
         }
     }
 
