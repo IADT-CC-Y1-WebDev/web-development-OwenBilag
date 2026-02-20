@@ -63,6 +63,12 @@
         <?php
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Student.php';
+        $student1 = new Student("Lila", 4631);
+        echo "Student ";
+        $student1->getName();
+        echo " has number ";
+        $student1->getNumber();
+        // echo $student1->name . "<br>" . $student1->number;
         ?>
     </div>
 
