@@ -90,11 +90,11 @@
         <?php
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Student.php';
-        // try {
-        //     $student = new Student("Alice", "");
-        // } catch (Exception $e) {
-        //     echo "Error: " . $e->getMessage();
-        // }
+        try {
+            $student = new Student("Alice", "");
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
         ?>
     </div>
 
