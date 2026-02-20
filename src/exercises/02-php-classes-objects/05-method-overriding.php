@@ -67,6 +67,9 @@
         <?php
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Postgrad.php';
+        require_once 'classes/classes/Postgrad.php';
+        $postgrad = new Postgrad("Sam", 5646, "Alexander", "Computers");
+        echo $postgrad;
         ?>
     </div>
 
@@ -85,6 +88,15 @@
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Undergrad.php';
         // require_once __DIR__ . '/classes/Postgrad.php';
+        $students = [
+            new Student("Mark", 6578),
+            new Undergrad("Mike", 4745, "Game Desighn", 2025),
+            new Postgrad("Kyle", 4434, "Paul", "Hotel Management")
+        ];
+
+        foreach ($students as $student) {
+            echo $student;
+        }
         ?>
     </div>
 
