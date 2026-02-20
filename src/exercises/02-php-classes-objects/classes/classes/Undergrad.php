@@ -10,5 +10,13 @@ class Undergrad extends Student {
         $this->course = $course;
         $this->year = $year;
     }
+
+    public function getCourse() {
+        echo $this->course;
+    }
+
+    public function getYear() {
+        echo $this->year;
+    }
 }
 ?>

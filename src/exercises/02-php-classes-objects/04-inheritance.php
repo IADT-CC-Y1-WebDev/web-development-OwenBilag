@@ -61,6 +61,16 @@
         <?php
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Undergrad.php';
+
+        $student1 = new Undergrad("Robert", 3476, "English", 2015);
+
+        $student1->getName();
+        echo "<br>";
+        $student1->getNumber();
+        echo "<br>";
+        $student1->getCourse();
+        echo "<br>";
+        $student1->getYear();
         ?>
     </div>
 
