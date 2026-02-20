@@ -12,7 +12,7 @@ class Undergrad extends Student {
     }
 
     public function __toString(){
-        $format = "<br> Student: %s, %s, Course: %s,  Year: %s";
+        $format = "<br> Undergrad: %s, %s, Course: %s,  Year: %s";
         return sprintf($format, $this->name, $this->number, $this->course, $this->year);
     }
 

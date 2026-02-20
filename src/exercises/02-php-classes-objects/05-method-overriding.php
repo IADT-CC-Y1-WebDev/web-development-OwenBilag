@@ -33,6 +33,12 @@
         <?php
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Undergrad.php';
+        require_once 'classes/classes/Undergrad.php';
+        $undergrad = new Undergrad("Noah", 6767, "Cullinary", 2020);
+        $student = new Student("Joe", 8759);
+
+        echo $undergrad;
+        echo $student;
         ?>
     </div>
 
