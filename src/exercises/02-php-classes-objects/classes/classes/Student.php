@@ -20,6 +20,10 @@ class Student {
         return sprintf($format, $this->name, $this->number);
     }
 
+    public function __destruct() {
+        echo "Student " . $this->name . " has left the system.";
+    }
+
     public function getName() {
         echo $this->name;
     }
