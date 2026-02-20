@@ -32,7 +32,10 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
-        // require_once __DIR__ . '/classes/Student.php';
+        require_once 'classes/classes/Student.php';
+
+        $student1 = new Student("Ross", 1967);
+        $student2 = new Student("Jessica", 2003);
         ?>
     </div>
 
