@@ -88,6 +88,13 @@
         <?php
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Undergrad.php';
+        $student2 = new Undergrad("Paul", 3542, "Comp Sci", 2025);
+        $student3 = new Undergrad("Kevin", 4454, "Science", 2024);
+        $student4 = new Undergrad("Walter", 6671, "Acting", 2025);
+
+        echo $student2;
+        echo $student3;
+        echo $student4;
         ?>
     </div>
 

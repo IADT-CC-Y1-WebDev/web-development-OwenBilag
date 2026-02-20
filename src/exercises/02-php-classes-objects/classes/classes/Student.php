@@ -16,7 +16,7 @@ class Student {
     }
 
     public function __toString() {
-        $format = "<br> Student: %s, (%f)";
+        $format = "<br> Student: %s, %s";
         return sprintf($format, $this->name, $this->number);
     }
 

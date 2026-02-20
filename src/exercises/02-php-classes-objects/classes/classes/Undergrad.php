@@ -11,6 +11,11 @@ class Undergrad extends Student {
         $this->year = $year;
     }
 
+    public function __toString(){
+        $format = "<br> Student: %s, %s, Course: %s,  Year: %s";
+        return sprintf($format, $this->name, $this->number, $this->course, $this->year);
+    }
+
     public function getCourse() {
         echo $this->course;
     }
