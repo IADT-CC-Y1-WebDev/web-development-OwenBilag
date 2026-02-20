@@ -35,6 +35,13 @@
         <?php
         // TODO: Write your solution here
         // require_once __DIR__ . '/classes/Student.php';
+        require_once "classes/classes/Student.php";
+        $student = new Student("James", 6857);
+        echo "Student ";
+        $student->getName();
+        echo " has number ";
+        $student->getNumber();
+        // echo $student->name . "<br>" . $student->number;
         ?>
     </div>
 
