@@ -37,7 +37,9 @@
     <div class="output">
         <?php
         // TODO: Write your solution here
-        // require_once __DIR__ . '/classes/Undergrad.php';
+        require_once 'classes/classes/Undergrad.php';
+        $student = new Undergrad("Elliot", 7384, "Art", 2024);
+        $student->getName();
         ?>
     </div>
 
