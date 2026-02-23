@@ -176,9 +176,13 @@ class Book
     // =========================================================================
     // Exercise 10: Complete Active Record
     // =========================================================================
-    public function delete()
-    {
-        // TODO: Implement this method
+    public function delete(){
+    if (!$this->id) {
+        return false;  // Can't delete unsaved game
+    }
+
+    $stmt = $this->db->prepare("DELETE FROM books WHERE id = :id");
+    return $stmt->execute(['id' => $this->id]);
     }
 
     // =========================================================================
