@@ -46,11 +46,12 @@ catch (PDOException $e) {
                     <?php foreach ($books as $book) { ?>
                         <div class="card">
                             <div class="top-content">
-                                <h2>Title: <?= h($book->title) ?></h2>
+                                <h2><?= h($book->title) ?></h2>
                                 <p>Release Year: <?= h($book->year) ?></p>
+                                <p>Author: <?= h($book->author) ?></p>
                             </div>
                             <div class="bottom-content">
-                                <img src="images/<?= h($book->image_filename) ?>" alt="Image for <?= h($book->title) ?>" />
+                                <img src="images/<?= h($book->cover_filename) ?>" alt="Image for <?= h($book->title) ?>" />
                                 <div class="actions">
                                     <a href="book_view.php?id=<?= h($book->id) ?>">View</a>/ 
                                     <a href="book_edit.php?id=<?= h($book->id) ?>">Edit</a>/ 
