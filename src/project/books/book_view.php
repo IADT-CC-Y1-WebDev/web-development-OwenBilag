@@ -12,6 +12,12 @@ try {
     if ($book === null) {
         die("<p>Error: Book not found.</p>");
     }
+    $formats = Format::findByBook($game->id);
+
+    $platformNames = [];
+    foreach ($platforms as $platform) {
+        $platformNames[] = htmlspecialchars($platform->name);
+    }
 } 
 catch (PDOException $e) {
     setFlashMessage('error', 'Error: ' . $e->getMessage());

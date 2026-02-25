@@ -10,25 +10,16 @@
     session_start();
     }
 
-    dd($_SESSION['form-data']);
-    dd($_SESSION['form-errors']);
+    try {
+    // $genres = Genre::findAll();
+    $formats = Format::findAll();
+    $publishers = Publishers::findAll();
+    }
+    catch (PDOException $e) {
+        setFlashMessage('error', 'Error: ' . $e->getMessage());
+        redirect('/index.php');
+    }
 
-    $publishers = [
-        ['id' => 1, 'name' => 'Penguin Random House'],
-        ['id' => 2, 'name' => 'HarperCollins'],
-        ['id' => 3, 'name' => 'Simon & Schuster'],
-        ['id' => 4, 'name' => 'Hachette Book Group'],
-        ['id' => 5, 'name' => 'Macmillan Publishers'],
-        ['id' => 6, 'name' => 'Scholastic Corporation'],
-        ['id' => 7, 'name' => 'O\'Reilly Media']
-    ];
-
-    $formats = [
-        ['id' => 1, 'name' => 'Hardcover'],
-        ['id' => 2, 'name' => 'Paperback'],
-        ['id' => 3, 'name' => 'Ebook'],
-        ['id' => 4, 'name' => 'Audiobook']
-    ];
 ?>
 
 <!DOCTYPE html>
@@ -40,12 +31,10 @@
 <body>
     <?php require 'php/inc/flash_message.php'; ?>
     <div class="back-link">
-        <a href="index.php">&larr; Back to Form Handling </a>
-    </div>
+        <a href="book_list.php">&larr; Back to Form Handling </a>
+    </div> <br>
 
     <h1>Add New Book</h1>
-
-    <!-- Display form data and errors for debugging purposes                 -->
     <?php Book::findAll(); ?>
     <form action="book_store.php" method="POST" enctype="multipart/form-data">
 
@@ -72,21 +61,18 @@
                 <?php endif; ?>
         </div>
 
-        <div class="form-group">
-            <label for="publisher_id">Publisher:</label>
-            <select id="publisher_id" name="publisher_id">
-                <option value="">-- Select Publisher --</option>
-                <?php foreach ($publishers as $pub): ?>
-                    <option value="<?= $pub['id'] ?>" <?= chosen('publisher_id', $pub['id']) ? "selected" : "" ?>>
-                        <?= h($pub['name']) ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-
-            <!-- TODO: Display error message if publisher validation fails   -->
-                <?php if (error('publisher_id')): ?>
-                <p class="error"><?= error('publisher_id') ?></p>
-                <?php endif; ?>
+        <div class="input">
+            <label class="special" for="publisher_id">Publisher:</label>
+            <div>
+                <select id="publisher_id" name="publisher_id" required>
+                    <?php foreach ($publishers as $publisher) { ?>
+                        <option value="<?= h($publisher->id) ?>" <?= chosen('publisher_id', $publisher->id) ? "selected" : "" ?>>
+                            <?= h($publisher->name) ?>
+                        </option>
+                    <?php } ?>
+                </select>
+                <p><?= error('publisher_id') ?></p>
+            </div>
         </div>
 
         <div class="form-group">
@@ -111,26 +97,24 @@
                 <?php endif; ?>
         </div>
 
-        <div class="form-group">
-            <label>Available Formats:</label>
-            <div class="checkbox-group">
-                <?php foreach ($formats as $format): ?>
-                    <label class="checkbox-label">
+        <div class="input">
+            <label class="special">Current Formats:</label><br>
+            <div>
+                <?php foreach ($formats as $format) { ?>
+                    <div>
                         <input type="checkbox" 
-                        name="format_ids[]" 
-                        value="<?= $format['id'] ?>"
-                        <?= chosen('format_ids', $format['id']) ? "checked" : "" ?>
-                        >
-                        <?= h($format['name']) ?>
-                    </label>
-                <?php endforeach; ?>
+                            id="format_<?= h($format->id) ?>" 
+                            name="format_ids[]" 
+                            value="<?= h($format->id) ?>"
+                            <?= chosen('format_ids', $format->id) ? "checked" : "" ?>
+                            >
+                        <label for="format_<?= h($format->id) ?>"><?= h($format->name) ?></label>
+                    </div>
+                <?php } ?>
             </div>
-
-            <!-- TODO: Display error message if formats validation fails     -->
-                <?php if (error('format_ids')): ?>
-                <p class="error"><?= error('format_ids') ?></p>
-                <?php endif; ?>
+            <p><?= error('format_ids') ?></p>
         </div>
+
         <div class="form-group">
             <label for="description">Description:</label>
             <!-- TODO: Repopulate description field                          -->
@@ -141,15 +125,12 @@
                 <p class="error"><?= error('description') ?></p>
                 <?php endif; ?>
         </div>
-        <div class="form-group">
-            <label for="cover">Book Cover Image (max 2MB):</label>
-            <!-- NOTE: File inputs cannot be repopulated for security reasons -->
-            <input type="file" id="cover" name="cover" accept="image/*">
-
-            <!-- TODO: Display error message if cover validation fails       -->
-                <?php if (error('cover')): ?>
-                <p class="error"><?= error('cover') ?></p>
-                <?php endif; ?>
+        <div class="input">
+            <label class="special" for="image">Image (required):</label>
+            <div>
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <p><?= error('image') ?></p>
+            </div>
         </div>
         <div class="form-group">
             <button type="submit" class="button">Save Book</button>

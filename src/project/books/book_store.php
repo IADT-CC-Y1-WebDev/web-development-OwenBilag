@@ -59,7 +59,7 @@
 
         // All validation passed - now process and save
         // Verify genre exists
-        $format = Book::findById($data['format_ids']);
+        $formats = Book::findById($data['format_ids']);
         if (!$genre) {
             throw new Exception('Selected format does not exist.');
         }
@@ -79,21 +79,20 @@
         $book->publisher_id = $data['publisher_id'];
         $book->year = $data['year'];
         $book->isbn = $data['isbn'];
-        $book->format_id = $data['format_ids'];
+        $book->format_ids = $data['format_ids'];
         $book->description = $data['description'];
         $book->cover_filename = $coverFilename;
 
         // Save to database
-        $game->save();
-        // Create platform associations
-        // if (!empty($data['platform_ids']) && is_array($data['platform_ids'])) {
-        //     foreach ($data['platform_ids'] as $platformId) {
-        //         // Verify platform exists before creating relationship
-        //         if (Platform::findById($platformId)) {
-        //             GamePlatform::create($game->id, $platformId);
-        //         }
-        //     }
-        // }
+        $book->save();
+        if (!empty($data['format_ids']) && is_array($data['format_ids'])) {
+            foreach ($data['format_ids'] as $formatId) {
+                // Verify platform exists before creating relationship
+                if (Format::findById($formatId)) {
+                    BookFormat::create($book->id, $formatId);
+                }
+            }
+        }
 
         // Clear any old form data
         clearFormData();
@@ -104,7 +103,7 @@
         setFlashMessage('success', 'Book stored successfully.');
 
         // Redirect to game details page
-        redirect('game_view.php?id=' . $game->id);
+        redirect('book_view.php?id=' . $book->id);
     }
     catch (Exception $e) {
         // Error - clean up uploaded image

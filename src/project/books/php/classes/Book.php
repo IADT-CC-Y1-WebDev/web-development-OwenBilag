@@ -58,11 +58,29 @@ class Book
         return null;
     }
 
-    public static function findByPublisher($publisherId)
-    {
+    public static function findByPublisher($publisherId) {
         $db = DB::getInstance()->getConnection();
         $stmt = $db->prepare("SELECT * FROM books WHERE publisher_id = :publisher_id ORDER BY title");
         $stmt->execute(['publisher_id' => $publisherId]);
+
+        $books = [];
+        while ($row = $stmt->fetch()) {
+            $books[] = new Book($row);
+        }
+
+        return $books;
+    }
+
+    public static function findByFormat($formatId) {
+        $db = DB::getInstance()->getConnection();
+        $stmt = $db->prepare("
+            SELECT b.*
+            FROM books b
+            INNER JOIN book_format bf ON b.id = bf.book_id
+            WHERE bf.format_id = :format_id
+            ORDER BY b.title
+        ");
+        $stmt->execute(['format_id' => $formatId]);
 
         $books = [];
         while ($row = $stmt->fetch()) {

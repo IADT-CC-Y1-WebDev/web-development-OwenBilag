@@ -65,6 +65,7 @@ catch (PDOException $e) {
                             <p><?= error('description') ?></p>
                         </div>
                     </div>
+                    <!-- platforms -->
                     <div class="input">
                         <label class="special">Platforms:</label>
                         <div>

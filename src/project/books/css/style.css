@@ -216,3 +216,7 @@ table.data-table th {
 table.data-table tr:hover {
     background: #f9f9f9;
 }
+
+h1 {
+	margin-bottom: 20px;
+}
