@@ -57,16 +57,14 @@
             throw new Exception('Validation failed.');
         }
 
-        // All validation passed - now process and save
-        // Verify genre exists
-        $formats = Book::findById($data['format_ids']);
-        if (!$genre) {
-            throw new Exception('Selected format does not exist.');
+        $publishers = Publishers::findById($data['publisher_id']);
+        if (!$publishers) {
+            throw new Exception('Selected publisher does not exist.');
         }
 
         // Process the uploaded image (validation already completed)
         $uploader = new ImageUpload();
-        $cover_filename = $uploader->process($_FILES['image']);
+        $cover_filename = $uploader->process($_FILES['cover']);
 
         if (!$cover_filename) {
             throw new Exception('Failed to process and save the image.');
