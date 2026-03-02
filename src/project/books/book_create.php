@@ -126,10 +126,10 @@
                 <?php endif; ?>
         </div>
         <div class="input">
-            <label class="special" for="image">Image (required):</label>
+            <label class="special" for="cover">Image (required):</label>
             <div>
-                <input type="file" id="image" name="image" accept="image/*" required>
-                <p><?= error('image') ?></p>
+                <input type="file" id="cover" name="cover" accept="cover/*" required>
+                <p><?= error('cover') ?></p>
             </div>
         </div>
         <div class="form-group">
