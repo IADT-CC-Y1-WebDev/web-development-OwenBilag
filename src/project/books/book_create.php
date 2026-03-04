@@ -26,7 +26,7 @@
 <html lang="en">
 <head>
     <?php include 'php/inc/head_content.php'; ?>
-    <title>Add New Book - Exercise</title>
+    <title>New Book</title>
 </head>
 <body>
     <?php require 'php/inc/flash_message.php'; ?>
@@ -126,9 +126,9 @@
                 <?php endif; ?>
         </div>
         <div class="input">
-            <label class="special" for="cover">Image (required):</label>
+            <label class="special" for="cover_filename">Image (required):</label>
             <div>
-                <input type="file" id="cover" name="cover" accept="cover/*" required>
+                <input type="file" id="cover_filename" name="cover_filename" accept="cover/*" required>
                 <p><?= error('cover') ?></p>
             </div>
         </div>

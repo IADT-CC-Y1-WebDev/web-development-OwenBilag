@@ -3,7 +3,6 @@
 class Publishers {
     public $id;
     public $name;
-
     private $db;
 
     public function __construct($data = []) {
@@ -15,7 +14,6 @@ class Publishers {
         }
     }
 
-    // Find all genres
     public static function findAll() {
         $db = DB::getInstance()->getConnection();
         $stmt = $db->prepare("SELECT * FROM publishers ORDER BY name");
@@ -29,7 +27,6 @@ class Publishers {
         return $publishers;
     }
 
-    // Find genre by ID
     public static function findById($id) {
         $db = DB::getInstance()->getConnection();
         $stmt = $db->prepare("SELECT * FROM publishers WHERE id = :id");

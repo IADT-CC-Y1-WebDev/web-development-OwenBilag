@@ -1,6 +1,8 @@
 <?php
 require_once 'php/lib/config.php';
 require_once 'php/lib/utils.php';
+require_once 'php/lib/session.php';
+require_once 'php/lib/forms.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'GET' || !array_key_exists('id', $_GET)) {
     die("<p>Error: No book ID provided.</p>");
@@ -12,16 +14,16 @@ try {
     if ($book === null) {
         die("<p>Error: Book not found.</p>");
     }
-    $formats = Format::findByBook($game->id);
+    $formats = Format::findByBook($book->id);
+    $publishers = Publisher::findById($book->$id);
 
-    $platformNames = [];
-    foreach ($platforms as $platform) {
-        $platformNames[] = htmlspecialchars($platform->name);
-    }
-} 
-catch (PDOException $e) {
+    $formatNames = [];
+    foreach ($formats as $format) {
+        $formatNames[] = htmlspecialchars($format->name);
+    };
+}
+catch (Exception $e) {
     setFlashMessage('error', 'Error: ' . $e->getMessage());
-    redirect('/book_list.php');
 }
 ?>
 <!DOCTYPE html>
@@ -53,7 +55,8 @@ catch (PDOException $e) {
                         <h2><?= htmlspecialchars($book->title) ?></h2>
                         <p>Release Year: <?= htmlspecialchars($book->year) ?></p>
                         <p>Author: <?= htmlspecialchars($book->author) ?></p>
-                        <p>Publisher: <?= htmlspecialchars($book->publisher_id) ?></p>
+                        <p>Publisher: <?= htmlspecialchars($publishers->$name) ?></p>
+                        <p>Formats: <?= implode(', ', $formatNames) ?></p>
                         <p>isbn: <?= htmlspecialchars($book->isbn) ?></p>
                         <p>Description:<br /><?= nl2br(htmlspecialchars($book->description)) ?></p>
                     </div>

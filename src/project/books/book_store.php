@@ -30,7 +30,7 @@
             'isbn' => $_POST['isbn'] ?? null,
             'format_ids' => $_POST['format_ids'] ?? [],
             'description' => $_POST['description'] ?? null,
-            'cover' => $_FILES['cover'] ?? null     
+            'cover_filename' => $_FILES['cover_filename'] ?? null     
         ];
 
         // Define validation rules
@@ -43,7 +43,7 @@
             'isbn' =>  "required|noempty|min:13|max:13",
             'format_ids' => "required|noempty|array|minvalue:1|maxvalue:4",
             'description' => "required|noempty|min:10",
-            'cover' => "required|file|image|mimes:jpg,jpeg,png|max_file_size:5242880"
+            'cover_filename' => "required|file|image|mimes:jpg,jpeg,png|max_file_size:5242880"
         ];
         // Validate all data (including file)
         $validator = new Validator($data, $rules);

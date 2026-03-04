@@ -32,8 +32,8 @@ class BookFormat {
         ");
 
         return $stmt->execute([
-            'book_id' => $gameId,
-            'format_id' => $platformId
+            'book_id' => $bookId,
+            'format_id' => $formatId
         ]);
     }
 
