@@ -14,12 +14,12 @@ try {
     if ($book === null) {
         die("<p>Error: Book not found.</p>");
     }
-    $formats = Format::findByBook($book->id);
-    $publishers = Publisher::findById($book->$id);
+    $publishers = Publishers::findById($book->publisher_id);
 
+    $formats = Format::findByBook($book->id);
     $formatNames = [];
     foreach ($formats as $format) {
-        $formatNames[] = htmlspecialchars($format->name);
+        $formatNames[]= htmlspecialchars($format->name);
     };
 }
 catch (Exception $e) {
@@ -55,7 +55,7 @@ catch (Exception $e) {
                         <h2><?= htmlspecialchars($book->title) ?></h2>
                         <p>Release Year: <?= htmlspecialchars($book->year) ?></p>
                         <p>Author: <?= htmlspecialchars($book->author) ?></p>
-                        <p>Publisher: <?= htmlspecialchars($publishers->$name) ?></p>
+                        <p>Publisher: <?= htmlspecialchars($publishers->name) ?></p>
                         <p>Formats: <?= implode(', ', $formatNames) ?></p>
                         <p>isbn: <?= htmlspecialchars($book->isbn) ?></p>
                         <p>Description:<br /><?= nl2br(htmlspecialchars($book->description)) ?></p>
