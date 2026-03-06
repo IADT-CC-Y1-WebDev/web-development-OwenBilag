@@ -30,9 +30,6 @@
 </head>
 <body>
     <?php require 'php/inc/flash_message.php'; ?>
-    <div class="back-link">
-        <a href="book_list.php">&larr; Back to Form Handling </a>
-    </div> <br>
 
     <h1>Add New Book</h1>
     <?php Book::findAll(); ?>
@@ -132,8 +129,9 @@
                 <p><?= error('cover') ?></p>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group input">
             <button type="submit" class="button">Save Book</button>
+            <div class="button"><a href="book_list.php">Cancel</a></div>
         </div>
     </form>
     </body>
