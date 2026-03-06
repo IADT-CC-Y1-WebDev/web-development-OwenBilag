@@ -46,7 +46,7 @@ class Format {
             SELECT f.*
             FROM formats f
             INNER JOIN book_format bf ON f.id = bf.format_id
-            WHERE bf.format_id = :format_id
+            WHERE bf.book_id = :book_id
             ORDER BY f.name
         ");
         $stmt->execute(['book_id' => $bookId]);

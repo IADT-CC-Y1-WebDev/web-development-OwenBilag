@@ -19,7 +19,7 @@ try {
     $formats = Format::findByBook($book->id);
     $formatNames = [];
     foreach ($formats as $format) {
-        $formatNames[]= htmlspecialchars($format->name);
+        $formatNames[] = htmlspecialchars($format->name);
     };
 }
 catch (Exception $e) {
@@ -52,13 +52,13 @@ catch (Exception $e) {
                     </div>
 
                     <div class="bottom-content">
-                        <h2><?= htmlspecialchars($book->title) ?></h2>
-                        <p>Release Year: <?= htmlspecialchars($book->year) ?></p>
-                        <p>Author: <?= htmlspecialchars($book->author) ?></p>
-                        <p>Publisher: <?= htmlspecialchars($publishers->name) ?></p>
-                        <p>Formats: <?= implode(', ', $formatNames) ?></p>
-                        <p>isbn: <?= htmlspecialchars($book->isbn) ?></p>
-                        <p>Description:<br /><?= nl2br(htmlspecialchars($book->description)) ?></p>
+                        <h2><?= htmlspecialchars($book->title)??"Not Found" ?></h2>
+                        <p>Release Year: <?= htmlspecialchars($book->year)??"Not Found" ?></p>
+                        <p>Author: <?= htmlspecialchars($book->author)??"Not Found" ?></p>
+                        <p>Publisher: <?= htmlspecialchars($publishers->name)??"Not Found" ?></p>
+                        <p>Formats: <?= implode(', ', $formatNames)??"Not Found" ?></p>
+                        <p>isbn: <?= htmlspecialchars($book->isbn)??"Not Found" ?></p>
+                        <p>Description:<br /><?= nl2br(htmlspecialchars($book->description))??"Not Found" ?></p>
                     </div>
                 </div>
             </div>
