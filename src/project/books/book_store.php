@@ -64,7 +64,7 @@
 
         // Process the uploaded image (validation already completed)
         $uploader = new ImageUpload();
-        $cover_filename = $uploader->process($_FILES['cover']);
+        $cover_filename = $uploader->process($_FILES['cover_filename']);
 
         if (!$cover_filename) {
             throw new Exception('Failed to process and save the image.');
