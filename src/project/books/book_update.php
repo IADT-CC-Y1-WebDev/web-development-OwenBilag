@@ -35,7 +35,7 @@ try {
     $year = date('Y');
     $rules = [
         'id' => 'required|integer',
-        'title' => "required|noempty|min:5|max:255",
+        'title' => "required|noempty|min:1|max:255",
         'author' => "required|noempty|min:5|max:255",
         'publisher_id' => "required|noempty|integer",
         'year' => "required|noempty|integer|minvalue:1900|maxvalue:" . $year, 
@@ -64,7 +64,7 @@ try {
     }
 
     // Verify publisher exists
-    $publisher = Publisher::findById($data['publisher_id']);
+    $publisher = Publishers::findById($data['publisher_id']);
     if (!$publisher) {
         throw new Exception('Selected publisher does not exist.');
     }
