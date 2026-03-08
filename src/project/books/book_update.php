@@ -19,6 +19,7 @@ try {
 
     // Get form data
     $data = [
+        'id' => $_POST['id'] ?? null,
         'title' => $_POST['title'] ?? null,
         'author' => $_POST['author'] ?? null,
         'publisher_id' => $_POST['publisher_id'] ?? null,
@@ -29,9 +30,11 @@ try {
         'cover_filename' => $_FILES['cover_filename'] ?? null     
     ];
 
+    //note for future owen, validator comes back as fails
     // Define validation rules
     $year = date('Y');
     $rules = [
+        'id' => 'required|integer',
         'title' => "required|noempty|min:5|max:255",
         'author' => "required|noempty|min:5|max:255",
         'publisher_id' => "required|noempty|integer",
