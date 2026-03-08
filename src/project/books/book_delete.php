@@ -63,7 +63,6 @@ try {
 
     // Redirect to game details page
     redirect('book_list.php');
-    // redirect('index.php');
 }
 catch (Exception $e) {
     // Set error flash message
@@ -79,6 +78,5 @@ catch (Exception $e) {
     }
     else {
         redirect('book_list.php');
-        // redirect('index.php');
     }
 }
