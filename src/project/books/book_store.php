@@ -40,10 +40,10 @@
             'author' => "required|noempty|min:5|max:255",
             'publisher_id' => "required|noempty|integer",
             'year' => "required|noempty|integer|minvalue:1900|maxvalue:" . $year, 
-            'isbn' =>  "required|noempty|min:13|max:13",
+            'isbn' =>  "required|noempty|min:13|max:15",
             'format_ids' => "required|noempty|array|minvalue:1|maxvalue:4",
             'description' => "required|noempty|min:10",
-            'cover_filename' => "required|file|image|mimes:jpg,jpeg,png|max_file_size:5242880"
+            'cover_filename' => "required|noempty|file|image|mimes:jpg,jpeg,png|max_file_size:5242880"
         ];
         // Validate all data (including file)
         $validator = new Validator($data, $rules);
@@ -79,7 +79,7 @@
         $book->isbn = $data['isbn'];
         $book->format_ids = $data['format_ids'];
         $book->description = $data['description'];
-        $book->cover_filename = $coverFilename;
+        $book->cover_filename = $cover_filename;
 
         // Save to database
         $book->save();

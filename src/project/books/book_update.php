@@ -39,7 +39,7 @@ try {
         'author' => "required|noempty|min:5|max:255",
         'publisher_id' => "required|noempty|integer",
         'year' => "required|noempty|integer|minvalue:1900|maxvalue:" . $year, 
-        'isbn' =>  "required|noempty|min:13|max:13",
+        'isbn' =>  "required|noempty|min:13|max:15",
         'format_ids' => "required|noempty|array|minvalue:1|maxvalue:4",
         'description' => "required|noempty|min:10",
         'cover_filename' => "required|file|image|mimes:jpg,jpeg,png|max_file_size:5242880"
@@ -79,11 +79,11 @@ try {
     // Process the uploaded image (validation already completed)
     $coverFilename = null;
     $uploader = new ImageUpload();
-    if ($uploader->hasFile('cover')) {
+    if ($uploader->hasFile('cover_filename')) {
         // Delete old image
         $uploader->deleteImage($book->cover_filename);
         // Process new image
-        $coverFilename = $uploader->process($_FILES['cover']);
+        $coverFilename = $uploader->process($_FILES['cover_filename']);
         // Check for processing errors
         if (!$coverFilename) {
             throw new Exception('Failed to process and save the image.');
