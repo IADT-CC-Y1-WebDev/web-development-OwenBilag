@@ -3,7 +3,7 @@ body {
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 1.5em;
-	background-color: #fff;
+	background-color: #ffffff;
 }
 
 .cards {
@@ -180,7 +180,7 @@ form {
 .input p {
 	margin-top: 3px;
 	color: red;
-	font-size: 14px;
+	font-size: 20px;
 }
 
 .input label.special {
@@ -225,4 +225,8 @@ h1 {
 	color: red;
 	font-weight: 600;
 	font-size: 20px;
+}
+
+.error h1 {
+	font-size: 30px;
 }
