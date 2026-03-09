@@ -79,11 +79,11 @@ try {
     // Process the uploaded image (validation already completed)
     $coverFilename = null;
     $uploader = new ImageUpload();
-    if ($uploader->hasFile('cover')) {
+    if ($uploader->hasFile('cover_filename')) {
         // Delete old image
         $uploader->deleteImage($book->cover_filename);
         // Process new image
-        $coverFilename = $uploader->process($_FILES['cover']);
+        $coverFilename = $uploader->process($_FILES['cover_filename']);
         // Check for processing errors
         if (!$coverFilename) {
             throw new Exception('Failed to process and save the image.');

@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET' || !array_key_exists('id', $_GET)) {
 $id = $_GET['id'];
 
 try {
-    $book = Book::findById($id);
+    $book = Book::findById($id);    
     if ($book === null) {
         die("<p>Error: Book not found.</p>");
     }

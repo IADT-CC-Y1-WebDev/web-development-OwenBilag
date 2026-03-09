@@ -33,7 +33,7 @@
 
     <h1>Add New Book</h1>
     <?php Book::findAll(); ?>
-    <form action="book_store.php" method="POST" enctype="multipart/form-data">
+    <form action="book_store.php" method="POST" enctype="multipart/form-data" novalidate>
 
         <div class="form-group">
             <label for="title">Book Title:</label>
@@ -123,11 +123,16 @@
                 <?php endif; ?>
         </div>
         <div class="input">
-            <label class="special" for="cover_filename">Image (required):</label>
+            <!-- <label class="special" for="cover_filename">Image (required):</label>
             <div>
-                <input type="file" id="cover_filename" name="cover_filename" accept="cover/*" required>
-                <p><?= error('cover') ?></p>
-            </div>
+                <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*" required>
+                <p><?= error('cover_filename') ?></p>
+            </div> -->
+            <label class="special" for="cover_filename">Image:</label>
+                <div>
+                    <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
+                    <p><?= error('cover_filename') ?></p>
+                </div>  
         </div>
         <div class="form-group input">
             <button type="submit" class="button">Save Book</button>
