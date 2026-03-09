@@ -42,8 +42,8 @@ catch (PDOException $e) {
     </head>
     <body>
         <div class="container">
-            <div class="width-12">
-                <?php require 'php/inc/flash_message.php'; ?>
+            <div class="width-12 error">
+                <div class="h1"><?php require 'php/inc/flash_message.php'; ?></div>
             </div>
             <div class="width-12">
                 <h1>Edit Book</h1>
@@ -57,14 +57,14 @@ catch (PDOException $e) {
                         <label class="special" for="title">Title:</label>
                         <div>
                             <input type="text" id="title" name="title" value="<?= old('title', $book->title) ?>" required>
-                            <p><?= error('title') ?></p>
+                            <p class="error"><?= error('title') ?></p>
                         </div>
                     </div>
                     <div class="input">
                         <label class="special" for="author">Author:</label>
                         <div>
                             <input type="text" id="author" name="author" value="<?= old('author', $book->author) ?>" required>
-                            <p><?= error('author') ?></p>
+                            <p class="error"><?= error('author') ?></p>
                         </div>
                     </div>
                     <div class="input">
@@ -77,21 +77,21 @@ catch (PDOException $e) {
                                     </option>
                                 <?php } ?>
                             </select>
-                            <p><?= error('publisher_id') ?></p>
+                            <p class="error"><?= error('publisher_id') ?></p>
                         </div>
                     </div>
                     <div class="input">
                         <label class="special" for="year">Year:</label>
                         <div>
                             <input type="text" id="year" name="year" value="<?= old('year', $book->year) ?>" required>
-                            <p><?= error('year') ?></p>
+                            <p class="error"><?= error('year') ?></p>
                         </div>
                     </div>        
                     <div class="input">
                         <label class="special" for="isbn">ISBN:</label>
                         <div>
                             <input type="text" id="isbn" name="isbn" value="<?= old('isbn', $book->isbn) ?>" required>
-                            <p><?= error('isbn') ?></p>
+                            <p class="error"><?= error('isbn') ?></p>
                         </div>
                     </div>            
                     <div class="input">
@@ -109,13 +109,13 @@ catch (PDOException $e) {
                                 </div>
                             <?php } ?>
                         </div>
-                        <p><?= error('format_ids') ?></p>
+                        <p class="error"><?= error('format_ids') ?></p>
                     </div>
                     <div class="input">
                         <label class="special" for="description">Description:</label>
                         <div>
                             <textarea id="description" name="description" required><?= old('description', $book->description) ?></textarea>
-                            <p><?= error('description') ?></p>
+                            <p class="error"><?= error('description') ?></p>
                         </div>
                     </div>
                     <div><img src="images/<?= $book->cover_filename ?>" /></div>
@@ -123,7 +123,7 @@ catch (PDOException $e) {
                         <label class="special" for="cover_filename">Image:</label>
                         <div>
                             <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
-                            <p><?= error('cover_filename') ?></p>
+                            <p class="error"><?= error('cover_filename') ?></p>
                         </div>
                     </div>
                     <div class="input">

@@ -128,21 +128,19 @@
                     <?php endif; ?>
             </div>
             <div class="input">
-                <!-- <label class="special" for="cover_filename">Image (required):</label>
+                <label class="special" for="cover_filename">Cover file image:</label>
                 <div>
-                    <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*" required>
-                    <p><?= error('cover_filename') ?></p>
-                </div> -->
-                <label class="special" for="cover_filename">Image:</label>
-                    <div>
-                        <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
-                        <p><?= error('cover_filename') ?></p>
-                    </div>  
+                    <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
+                </div>  
+                <?php if (error('cover_filename')): ?>
+                    <p class="error"><?= error('cover_filename') ?></p>
+                <?php endif; ?>                     
             </div>
             <div class="form-group input">
                 <button type="submit" class="button">Save Book</button>
                 <div class="button"><a href="book_list.php">Cancel</a></div>
-            </div>            
+            </div>     
+      
         </div>
     </div>
 
