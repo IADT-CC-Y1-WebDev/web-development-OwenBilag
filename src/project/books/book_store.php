@@ -79,7 +79,7 @@
         $book->isbn = $data['isbn'];
         $book->format_ids = $data['format_ids'];
         $book->description = $data['description'];
-        $book->cover_filename = $coverFilename;
+        $book->cover_filename = $cover_filename;
 
         // Save to database
         $book->save();
