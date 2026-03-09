@@ -42,13 +42,12 @@ catch (PDOException $e) {
     </head>
     <body>
         <div class="container">
-            <div class="width-12 error">
-                <div class="h1"><?php require 'php/inc/flash_message.php'; ?></div>
-            </div>
-            <div class="width-12">
+            <div class="width-3"></div>
+            <div class="width-6 forms">
                 <h1>Edit Book</h1>
-            </div>
-            <div class="width-12">
+                <div class="error">
+                    <h1><?php require 'php/inc/flash_message.php'; ?><h1>
+                </div>                
                 <form action="book_update.php" method="POST" enctype="multipart/form-data" novalidate>
                     <div class="input">
                         <input type="hidden" name="id" value="<?= h($book->id) ?>">
@@ -127,7 +126,7 @@ catch (PDOException $e) {
                         </div>
                     </div>
                     <div class="input">
-                        <button class="button" type="submit">Update Game</button>
+                        <button class="button" type="submit">Update Book</button>
                         <div class="button"><a href="book_list.php">Cancel</a></div>
                     </div>
                 </form>

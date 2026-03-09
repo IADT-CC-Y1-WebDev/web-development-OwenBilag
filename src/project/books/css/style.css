@@ -4,6 +4,26 @@ body {
 	font-weight: 400;
 	line-height: 1.5em;
 	background-color: #ffffff;
+	background-image: url(../images/background.PNG);
+	background-position: center;
+	background-size: 100%;
+}
+
+h1, h2, h3, h4 {
+	line-height: 1;
+}
+
+.main h1 {
+	color: #14120E;
+	font-size: 50px;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 5px;
+	font-weight: 800;
+}
+
+.head {
+	background-color: #FFE4C4;
 }
 
 .cards {
@@ -13,10 +33,10 @@ body {
 }
 
 .card {
-	background-color: #f4f4f4;
+	background-color: #714423;
 	padding: 16px;
 	border-radius: 7px;
-	border: 1px solid #bcbcbc;
+	border: 3px solid #2f1b12;
 	width: 285px;
 	display: flex;
 	flex-direction: column;
@@ -28,12 +48,14 @@ body {
 	line-height: 32px;
 	font-family: "IBM Plex Serif";
 	margin-bottom: 12px;
-	font-weight: 300;
-	color: #016040;
+	font-weight: 700;
+	color: #CABA9C;
 }
 
 .card p {
-	margin-bottom: 10px;
+	margin-bottom: 5px;
+	line-height: 1;
+	color: #CABA9C;
 }
 
 .card .actions {
@@ -44,28 +66,33 @@ body {
 
 .card .actions a {
 	font-weight: 600;
-	color: #b0acfa;
+	color: #606C38;
 	font-size: 13px;
 	text-transform: uppercase;
 }
 
 .card .actions a:hover {
-	color: #2c22df;
+	color: #283618;
 }
 
 .card img {
 	width: 100%;
 	margin-bottom: 10px;
 	object-fit: cover;
-	border: 1px solid #7c75f1;
+	border: 1px solid #000000;
 	height: 340px;
 }
 
 .filters {
-	background-color: #f2f2f2;
+	background-color: #EDC9AF;
 	padding: 10px;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
+}
+
+.filters .right {
+	display: flex;
+	gap: 15px;
 }
 
 .filters form {
@@ -91,13 +118,17 @@ body {
 	padding: 5px;
 }
 
-.filters form button {
+.filters .left button {
 	font-size: 13px;
-	background-color: #084108;
+	background-color: #283618;
 	padding: 5px 10px;
 	color: #ececec;
-	border: 1px solid #4bff3c;
+	border: 1px solid #1c2710;
 	border-radius: 5px;
+}
+
+.filters .left button:hover {
+	background-color: #606C38;
 }
 
 .header {
@@ -107,24 +138,30 @@ body {
 }
 
 .button {
+	align-self: flex-start;
 	font-size: 13px;
-	background-color: #123991;
+	background-color: #6A2C0F;
 	padding: 5px 10px;
 	color: #ececec;
-	border: 1px solid #4bff3c;
+	border: 1px solid #44270D;
 	border-radius: 5px;
 }
 
+.button:hover {
+	background-color: #87551D;
+}
+
 .hCard {
-	background-color: #f4f4f4;
+	background-color: #714423;
 	padding: 16px;
 	border-radius: 7px;
-	border: 1px solid #bcbcbc;
+	border: 1px solid #2f1b12;
 	width: 800px;
 	display: flex;
 	gap: 20px;
 	flex-direction: row;
 	justify-content: space-between;
+	color: #CABA9C;
 }
 
 .hCard h2 {
@@ -132,12 +169,11 @@ body {
 	line-height: 45px;
 	font-family: "IBM Plex Serif";
 	margin-bottom: 12px;
-	font-weight: 300;
-	color: #016040;
 }
 
 .hCard p {
 	margin-bottom: 10px;
+	font-weight: 425;
 }
 
 .hCard .actions {
@@ -148,20 +184,20 @@ body {
 
 .hCard .actions a {
 	font-weight: 600;
-	color: #b0acfa;
+	color: #1c2710;
 	font-size: 13px;
 	text-transform: uppercase;
 }
 
 .hCard .actions a:hover {
-	color: #2c22df;
+	color:#606C38;
 }
 
 .hCard img {
 	width: 340px;
 	margin-bottom: 10px;
 	object-fit: cover;
-	border: 1px solid #7c75f1;
+	border: 1px solid #2f1b12;
 	height: 340px;
 }
 
@@ -177,17 +213,11 @@ form {
 	gap: 20px;
 }
 
-.input p {
-	margin-top: 3px;
-	color: red;
-	font-size: 20px;
-}
-
 .input label.special {
 	width: 108px;
 	display: flex;
 	justify-content: flex-end;
-	color: #252525;
+	color: 	#14120E;;
 	font-weight: 900;
 }
 
@@ -230,5 +260,93 @@ h1 {
 .error h1 {
 	font-size: 30px;
 	font-weight: 800;
->>>>>>> cf8c2750626ecd195aefa1a513d2a7243688325d
+}
+
+.index {
+	background-color: #714423;
+	padding: 30px;
+	border-radius: 7px;
+	border: 3px solid #2f1b12;
+	color: #14120E;
+}
+
+.index h1 {
+	font-size: 50px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 40px;
+	letter-spacing: 5px;
+	font-weight: 800;
+}
+
+.index h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.index h3 {
+	text-align: center;
+	margin-bottom: 10px;
+	font-weight: 650;
+}
+
+.index h4 {
+	text-align: center;
+	font-weight: 400;
+}
+
+.index a {
+	color: #FFEAE0;
+	background-color: #283618;
+	border-radius: 5px;
+	padding: 10px;
+	border: #000;
+	border-width: 2px;
+}
+
+.index a:hover {
+	background-color: #606C38;
+}
+
+.index .links {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.flash-message {
+	background-color: #fff;
+	padding: 10px;
+	border: #000;
+	border-width: 2px;
+	border-radius: 10px;
+}
+
+.flash-message h1 {
+	color: #fff;
+	font-size: 20px;
+}
+
+.error .flash-message {
+	background-color: red;
+	color: #fff;
+}
+
+.forms {
+	background-color: #714423;
+	padding: 30px;
+	border-radius: 7px;
+	border: 3px solid #2f1b12;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.forms input, select, textarea {
+	background-color: #86532e;
+	border-right: 2px solid #2f1b12;
+	border-bottom: 2px solid #2f1b12;
+	border-top: 2px solid #3D1E0F;
+	border-left: 2px solid #3D1E0F;
+	width: fit-content;
 }

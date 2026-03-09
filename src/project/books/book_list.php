@@ -16,28 +16,42 @@ catch (PDOException $e) {
         <title>Books</title>
     </head>
     <body>
-        <div class="container">
-            <div class="width-12 header">
-                <?php require 'php/inc/flash_message.php'; ?>
-                <div class="button">
-                    <a href="book_create.php">Add New Book</a>
+        <div class="head">
+            <div class="container">
+                <div class="width-12 main">
+                    <h1>Book Storage</h1>
+                    <?php require 'php/inc/flash_message.php'; ?>                
+                </div>
+            <div class="width-12">
+                <div class="filters">
+                    <div class="right">
+                        <div class="button">
+                            <a href="index.php">Home</a>
+                        </div> 
+                        <div class="button">
+                            <a href="book_create.php">Add New Book</a>
+                        </div> 
+                    </div>
+                    <div class="left">
+                        <?php if (!empty($books)) { ?>
+                            <form>   
+                                <div>
+                                    <label for="title_filter">Title:</label>
+                                    <input type="text" id="title_filter" name="title_filter">
+                                </div>
+                                <div>
+                                    <button type="button" id="apply_filters">Apply Filters</button>
+                                    <button type="button" id="clear_filters">Clear Filters</button>
+                                </div>   
+                            </form>
+                        <?php } ?> 
+                    </div>
                 </div>
             </div>
-            <?php if (!empty($books)) { ?>
-                <div class="width-12 filters">
-                    <form>
-                        <div>
-                            <label for="title_filter">Title:</label>
-                            <input type="text" id="title_filter" name="title_filter">
-                        </div>
-                        <div>
-                            <button type="button" id="apply_filters">Apply Filters</button>
-                            <button type="button" id="clear_filters">Clear Filters</button>
-                        </div>
-                    </form>
-                </div>
-            <?php } ?>
+            </div>       
         </div>
+
+
         <div class="container">
             <?php if (empty($books)) { ?>
                 <p>No Books found.</p>

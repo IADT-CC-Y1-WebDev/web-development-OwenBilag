@@ -30,117 +30,118 @@
 </head>
 <body>
     <div class="container">
-        <div class="width-12">
-        <div class="error">
-            <h1><?php require 'php/inc/flash_message.php'; ?></h1>            
+        <div class="width-3">
         </div>
-
-
-        <h1>Add New Book</h1>
-        <?php Book::findAll(); ?>
-        <form action="book_store.php" method="POST" enctype="multipart/form-data" novalidate>
-
-            <div class="input">
-                <label class="special" for="title">Book Title:</label>
-                <input type="text" id="title" name="title" value="<?= h(old('title')) ?>">
+        <div class="width-6 forms">
+            <h1>Add New Book</h1>
+            <div class="error">
+                <h1><?php require 'php/inc/flash_message.php'; ?></h1>            
+            </div>           
+            <?php Book::findAll(); ?>
+            <form action="book_store.php" method="POST" enctype="multipart/form-data"  novalidate>
 
                 <div>
+                    <div class="input">
+                        <label class="special" for="title">Book Title:</label>
+                        <input type="text" id="title" name="title" value="<?= h(old('title')) ?>">
+                    </div>
                     <?php if (error('title')): ?>
                     <p class="error"><?= error('title') ?></p>
-                    <?php endif; ?>
+                    <?php endif; ?>                 
                 </div>
 
-            </div>
-
-            <div class="input">
-                <label class="special" for="author">Author:</label>
-                <!-- TODO: Repopulate author field                               -->
-                <input type="text" id="author" name="author" value="<?= h(old('author')) ?>">
-
-                <!-- TODO: Display error message if author validation fails      -->
+                <div>
+                    <div class="input">
+                        <label class="special" for="author">Author:</label>
+                        <input type="text" id="author" name="author" value="<?= h(old('author')) ?>">
+                    </div>
                     <?php if (error('author')): ?>
                     <p class="error"><?= error('author') ?></p>
                     <?php endif; ?>
-            </div>
+                </div>
 
-            <div class="input">
-                <label class="special" for="publisher_id">Publisher:</label>
                 <div>
-                    <select id="publisher_id" name="publisher_id" required>
-                        <?php foreach ($publishers as $publisher) { ?>
-                            <option value="<?= h($publisher->id) ?>" <?= chosen('publisher_id', $publisher->id) ? "selected" : "" ?>>
-                                <?= h($publisher->name) ?>
-                            </option>
-                        <?php } ?>
-                    </select>
+                    <div class="input">
+                        <label class="special" for="publisher_id">Publisher:</label>
+                        <div>
+                            <select id="publisher_id" name="publisher_id" required>
+                                <?php foreach ($publishers as $publisher) { ?>
+                                    <option value="<?= h($publisher->id) ?>" <?= chosen('publisher_id', $publisher->id) ? "selected" : "" ?>>
+                                        <?= h($publisher->name) ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>                
                     <p class="error"><?= error('publisher_id') ?></p>
                 </div>
-            </div>
 
-            <div class="input">
-                <label class="special" for="year">Year:</label>
-                <!-- TODO: Repopulate year field                                 -->
-                <input type="text" id="year" name="year" value="<?= h(old('year')) ?>">
-
-                <!-- TODO: Display error message if year validation fails        -->
+                <div>
+                    <div class="input">
+                        <label class="special" for="year">Year:</label>
+                        <input type="text" id="year" name="year" value="<?= h(old('year')) ?>">
+                    </div>
                     <?php if (error('year')): ?>
                     <p class="error"><?= error('year') ?></p>
                     <?php endif; ?>
-            </div>
+                </div>
 
-            <div class="input">
-                <label class="special" for="isbn">ISBN:</label>
-                <!-- TODO: Repopulate ISBN field                                 -->
-                <input type="text" id="isbn" name="isbn" value="<?= h(old('isbn')) ?>">
-
-                <!-- TODO: Display error message if ISBN validation fails        -->
+                <div>
+                    <div class="input">
+                        <label class="special" for="isbn">ISBN:</label>
+                        <input type="text" id="isbn" name="isbn" value="<?= h(old('isbn')) ?>">
+                    </div>                
                     <?php if (error('isbn')): ?>
                     <p class="error"><?= error('isbn') ?></p>
-                    <?php endif; ?>
-            </div>
-
-            <div class="input">
-                <label class="special">Current Formats:</label><br>
-                <div>
-                    <?php foreach ($formats as $format) { ?>
-                        <div>
-                            <input type="checkbox" 
-                                id="format_<?= h($format->id) ?>" 
-                                name="format_ids[]" 
-                                value="<?= h($format->id) ?>"
-                                <?= chosen('format_ids', $format->id) ? "checked" : "" ?>
-                                >
-                            <label for="format_<?= h($format->id) ?>"><?= h($format->name) ?></label>
-                        </div>
-                    <?php } ?>
+                    <?php endif; ?>                
                 </div>
-                <p class="error"><?= error('format_ids') ?></p>
-            </div>
 
-            <div class="input">
-                <label class="special" for="description">Description:</label>
-                <!-- TODO: Repopulate description field                          -->
-                <textarea id="description" name="description" rows="5"><?= h(old('description')) ?></textarea>
+                <div>
+                    <div class="input">
+                        <label class="special">Current Formats:</label><br>
+                        <div>
+                            <?php foreach ($formats as $format) { ?>
+                                <div>
+                                    <input type="checkbox" 
+                                        id="format_<?= h($format->id) ?>" 
+                                        name="format_ids[]" 
+                                        value="<?= h($format->id) ?>"
+                                        <?= chosen('format_ids', $format->id) ? "checked" : "" ?>
+                                        >
+                                    <label for="format_<?= h($format->id) ?>"><?= h($format->name) ?></label>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>                
+                    <p class="error"><?= error('format_ids') ?></p>                
+                </div>
 
-                <!-- TODO: Display error message if description validation fails -->
+                <div>
+                    <div class="input">
+                        <label class="special" for="description">Description:</label>
+                        <textarea id="description" name="description" rows="5"><?= h(old('description')) ?></textarea>
+                    </div>
                     <?php if (error('description')): ?>
                     <p class="error"><?= error('description') ?></p>
                     <?php endif; ?>
-            </div>
-            <div class="input">
-                <label class="special" for="cover_filename">Cover file image:</label>
+                </div>
+                
                 <div>
-                    <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
-                </div>  
-                <?php if (error('cover_filename')): ?>
-                    <p class="error"><?= error('cover_filename') ?></p>
-                <?php endif; ?>                     
-            </div>
-            <div class="form-group input">
-                <button type="submit" class="button">Save Book</button>
-                <div class="button"><a href="book_list.php">Cancel</a></div>
-            </div>     
-      
+                    <div class="input">
+                        <label class="special" for="cover_filename">Cover file image:</label>
+                        <div>
+                            <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
+                        </div>  
+                    </div>
+                    <?php if (error('cover_filename')): ?>
+                        <p class="error"><?= error('cover_filename') ?></p>
+                    <?php endif; ?>                  
+                </div>
+
+                <div class="form-group input">
+                    <button type="submit" class="button">Save Book</button>
+                    <div class="button"><a href="book_list.php">Cancel</a></div>
+                </div>     
         </div>
     </div>
 

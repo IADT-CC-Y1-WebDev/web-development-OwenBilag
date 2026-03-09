@@ -64,7 +64,7 @@ try {
     }
 
     // Verify publisher exists
-    $publisher = Publisher::findById($data['publisher_id']);
+    $publisher = Publishers::findById($data['publisher_id']);
     if (!$publisher) {
         throw new Exception('Selected publisher does not exist.');
     }
