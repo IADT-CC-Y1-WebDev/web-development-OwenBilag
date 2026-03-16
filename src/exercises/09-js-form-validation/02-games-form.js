@@ -113,6 +113,11 @@ function onSubmitForm(evt) {
         addError('platform_ids', 'Platform is required')
     }
 
+    //image
+    if(imageInput.files.length === 0){
+        addError('image', 'Image is required')
+    }
+
     showFieldErrors();
     showErrorSummaryTop();
 
