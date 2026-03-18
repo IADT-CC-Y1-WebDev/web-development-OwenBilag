@@ -38,16 +38,14 @@
                 <h1><?php require 'php/inc/flash_message.php'; ?></h1>            
             </div>           
             <?php Book::findAll(); ?>
-            <form action="book_store.php" method="POST" enctype="multipart/form-data"  novalidate>
+            <form id="create_form" action="book_store.php" method="POST" enctype="multipart/form-data"  novalidate>
 
                 <div>
                     <div class="input">
                         <label class="special" for="title">Book Title:</label>
                         <input type="text" id="title" name="title" value="<?= h(old('title')) ?>">
                     </div>
-                    <?php if (error('title')): ?>
-                    <p class="error"><?= error('title') ?></p>
-                    <?php endif; ?>                 
+                    <p id="title_error" class="error"><?= error('title') ?></p>
                 </div>
 
                 <div>
@@ -55,9 +53,10 @@
                         <label class="special" for="author">Author:</label>
                         <input type="text" id="author" name="author" value="<?= h(old('author')) ?>">
                     </div>
-                    <?php if (error('author')): ?>
+                    <!-- <?php if (error('author')): ?>
                     <p class="error"><?= error('author') ?></p>
-                    <?php endif; ?>
+                    <?php endif; ?> -->
+                    <span id="author_error" class="error"></span>
                 </div>
 
                 <div>
@@ -73,7 +72,8 @@
                             </select>
                         </div>
                     </div>                
-                    <p class="error"><?= error('publisher_id') ?></p>
+                    <!-- <p class="error"><?= error('publisher_id') ?></p> -->
+                    <span id="publisher_error" class="error"></span>                     
                 </div>
 
                 <div>
@@ -81,9 +81,10 @@
                         <label class="special" for="year">Year:</label>
                         <input type="text" id="year" name="year" value="<?= h(old('year')) ?>">
                     </div>
-                    <?php if (error('year')): ?>
+                    <!-- <?php if (error('year')): ?>
                     <p class="error"><?= error('year') ?></p>
-                    <?php endif; ?>
+                    <?php endif; ?> -->
+                    <span id="year_error" class="error"></span>
                 </div>
 
                 <div>
@@ -91,9 +92,10 @@
                         <label class="special" for="isbn">ISBN:</label>
                         <input type="text" id="isbn" name="isbn" value="<?= h(old('isbn')) ?>">
                     </div>                
-                    <?php if (error('isbn')): ?>
+                    <!-- <?php if (error('isbn')): ?>
                     <p class="error"><?= error('isbn') ?></p>
-                    <?php endif; ?>                
+                    <?php endif; ?>-->
+                    <span id="isbn_error" class="error"></span>
                 </div>
 
                 <div>
@@ -113,7 +115,8 @@
                             <?php } ?>
                         </div>
                     </div>                
-                    <p class="error"><?= error('format_ids') ?></p>                
+                    <!-- <p class="error"><?= error('format_ids') ?></p>-->
+                    <span id="formats_error" class="error"></span>
                 </div>
 
                 <div>
@@ -121,9 +124,10 @@
                         <label class="special" for="description">Description:</label>
                         <textarea id="description" name="description" rows="5"><?= h(old('description')) ?></textarea>
                     </div>
-                    <?php if (error('description')): ?>
+                    <!-- <?php if (error('description')): ?>
                     <p class="error"><?= error('description') ?></p>
-                    <?php endif; ?>
+                    <?php endif; ?>-->
+                    <span id="description_error" class="error"></span>
                 </div>
                 
                 <div>
@@ -133,19 +137,20 @@
                             <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
                         </div>  
                     </div>
-                    <?php if (error('cover_filename')): ?>
+                    <!-- <?php if (error('cover_filename')): ?>
                         <p class="error"><?= error('cover_filename') ?></p>
-                    <?php endif; ?>                  
+                    <?php endif; ?>-->
+                    <span id="cover_error" class="error"></span>
                 </div>
 
                 <div class="form-group input">
-                    <button type="submit" class="button">Save Book</button>
+                    <button id="sbmt_btn" type="submit" class="button">Save Book</button>
                     <div class="button"><a href="book_list.php">Cancel</a></div>
-                </div>     
+                </div>    
+            </form>                 
         </div>
     </div>
-
-    </form>
+    <script src="js/create.js"></script>
     </body>
 </html>
 <?php
