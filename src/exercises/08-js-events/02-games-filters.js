@@ -1,7 +1,7 @@
 let aplyBtn = document.getElementById('apply_filters');
 let clrBtn = document.getElementById('clear_filters');
 
-let cards = document.querySelector('filters');
+let cards = document.querySelectorAll('got_card');
 
 let form = document.getElementById('filters');
 
