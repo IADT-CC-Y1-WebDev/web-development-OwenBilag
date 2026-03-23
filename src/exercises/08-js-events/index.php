@@ -21,7 +21,7 @@
     </p>
 
     <ul class="exercise-list">
-        <li><a href="#exercise-1">Exercise 08-1: Books filter form</a></li>
+        <li><a href="01-basic-events.php">Exercise 08-1: Books filter form</a></li>
         <li><a href="#exercise-2">Exercise 08-2: Integrate filters into the books project</a></li>
     </ul>
 
