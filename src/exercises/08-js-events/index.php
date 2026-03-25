@@ -23,6 +23,7 @@
     <ul class="exercise-list">
         <li><a href="01-basic-events.php">Exercise 08-1: Books filter form</a></li>
         <li><a href="02-games-filters.php">Exercise 08-2: Integrate filters into the books project</a></li>
+        <li><a href="03-delegation.php">Exercise 08-3: Delegatation</a></li>
     </ul>
 
     <h2 id="exercise-1">Exercise 08-1: Books filter form</h2>

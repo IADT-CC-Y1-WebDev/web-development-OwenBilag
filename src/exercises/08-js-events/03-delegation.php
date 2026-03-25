@@ -34,6 +34,15 @@ $games = [
             background: #f5f5f5;
         }
 
+        .card:hover {
+            border: 1px solid #b9b9b9ff;
+            background: #ebebebff;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
         .card.selected {
             border-color: #0066cc;
             box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
