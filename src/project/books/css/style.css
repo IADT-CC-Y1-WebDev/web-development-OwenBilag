@@ -253,8 +253,8 @@ h1 {
 
 .error {
 	color: red;
-	font-weight: 600;
-	font-size: 20px;
+	font-weight: 400;
+	font-size: 15px;
 }
 
 .error h1 {
@@ -325,6 +325,10 @@ h1 {
 .flash-message h1 {
 	color: #fff;
 	font-size: 20px;
+}
+
+.error {
+
 }
 
 .error .flash-message {

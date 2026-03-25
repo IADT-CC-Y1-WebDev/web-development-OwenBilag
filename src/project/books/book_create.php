@@ -44,19 +44,19 @@
                     <div class="input">
                         <label class="special" for="title">Book Title:</label>
                         <input type="text" id="title" name="title" value="<?= h(old('title')) ?>">
+                        <span id="title_error" class="error"><?= error('title') ?></span>                        
                     </div>
-                    <p id="title_error" class="error"><?= error('title') ?></p>
                 </div>
 
                 <div>
                     <div class="input">
                         <label class="special" for="author">Author:</label>
                         <input type="text" id="author" name="author" value="<?= h(old('author')) ?>">
+                        <span id="author_error" class="error"></span>
                     </div>
                     <!-- <?php if (error('author')): ?>
                     <p class="error"><?= error('author') ?></p>
                     <?php endif; ?> -->
-                    <span id="author_error" class="error"></span>
                 </div>
 
                 <div>
@@ -71,9 +71,9 @@
                                 <?php } ?>
                             </select>
                         </div>
+                        <span id="publisher_error" class="error"></span>
                     </div>                
-                    <!-- <p class="error"><?= error('publisher_id') ?></p> -->
-                    <span id="publisher_error" class="error"></span>                     
+                    <!-- <p class="error"><?= error('publisher_id') ?></p> -->                
                 </div>
 
                 <div>
@@ -150,7 +150,7 @@
             </form>                 
         </div>
     </div>
-    <script src="js/create.js"></script>
+    <script src="./js/create.js"></script>
     </body>
 </html>
 <?php
