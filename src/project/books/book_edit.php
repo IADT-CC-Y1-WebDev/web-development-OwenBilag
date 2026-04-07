@@ -48,22 +48,25 @@ catch (PDOException $e) {
                 <div class="error">
                     <h1><?php require 'php/inc/flash_message.php'; ?><h1>
                 </div>                
-                <form action="book_update.php" method="POST" enctype="multipart/form-data" novalidate>
+                <form id="edit_form" action="book_update.php" method="POST" enctype="multipart/form-data" novalidate>
                     <div class="input">
-                        <input type="hidden" name="id" value="<?= h($book->id) ?>">
+                        <input id="id" type="hidden" name="id" value="<?= h($book->id) ?>">
+                        <span id="id_error" class="error"></span>
                     </div>
                     <div class="input">
                         <label class="special" for="title">Title:</label>
                         <div>
                             <input type="text" id="title" name="title" value="<?= old('title', $book->title) ?>" required>
-                            <p class="error"><?= error('title') ?></p>
+                            <!-- <p class="error"><?= error('title') ?></p> -->
+                             <span id="title_error" class="error"></span>
                         </div>
                     </div>
                     <div class="input">
                         <label class="special" for="author">Author:</label>
                         <div>
                             <input type="text" id="author" name="author" value="<?= old('author', $book->author) ?>" required>
-                            <p class="error"><?= error('author') ?></p>
+                            <!-- <p class="error"><?= error('author') ?></p> -->
+                             <span id="author_error" class="error"></span>
                         </div>
                     </div>
                     <div class="input">
@@ -76,7 +79,8 @@ catch (PDOException $e) {
                                     </option>
                                 <?php } ?>
                             </select>
-                            <p class="error"><?= error('publisher_id') ?></p>
+                            <!-- <p class="error"><?= error('publisher_id') ?></p> -->
+                             <span id="publisher_error" class="error"></span>
                         </div>
                     </div>
                     <div class="input">
@@ -90,7 +94,8 @@ catch (PDOException $e) {
                         <label class="special" for="isbn">ISBN:</label>
                         <div>
                             <input type="text" id="isbn" name="isbn" value="<?= old('isbn', $book->isbn) ?>" required>
-                            <p class="error"><?= error('isbn') ?></p>
+                            <!-- <p class="error"><?= error('isbn') ?></p> -->
+                             <span id="isbn_error" class="error"></span>
                         </div>
                     </div>            
                     <div class="input">
@@ -108,13 +113,15 @@ catch (PDOException $e) {
                                 </div>
                             <?php } ?>
                         </div>
-                        <p class="error"><?= error('format_ids') ?></p>
+                        <!-- <p class="error"><?= error('format_ids') ?></p> -->
+                         <span id="format_ids[]_error" class="error"></span>
                     </div>
                     <div class="input">
                         <label class="special" for="description">Description:</label>
                         <div>
                             <textarea id="description" name="description" required><?= old('description', $book->description) ?></textarea>
-                            <p class="error"><?= error('description') ?></p>
+                            <!-- <p class="error"><?= error('description') ?></p> -->
+                             <span id="description_error" class="error"></span>
                         </div>
                     </div>
                     <div><img src="images/<?= $book->cover_filename ?>" /></div>
@@ -122,7 +129,8 @@ catch (PDOException $e) {
                         <label class="special" for="cover_filename">Image:</label>
                         <div>
                             <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
-                            <p class="error"><?= error('cover_filename') ?></p>
+                            <!-- <p class="error"><?= error('cover_filename') ?></p> -->
+                             <span id="cover_error" class="error"></span>
                         </div>
                     </div>
                     <div class="input">
@@ -132,6 +140,7 @@ catch (PDOException $e) {
                 </form>
             </div>
         </div>
+        <script src="js/edit.js"></script>
     </body>
 </html>
 <?php
