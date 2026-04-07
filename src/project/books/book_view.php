@@ -49,7 +49,6 @@ catch (Exception $e) {
                             <a id="deleteBtn" href="book_delete.php?id=<?= h($book->id) ?>">Delete</a> /
                             <a href="book_list.php">Back</a>
                         </div>
-                        <script src="./js/delete.confirm.js"></script>
                     </div>
 
                     <div class="bottom-content">
@@ -64,6 +63,6 @@ catch (Exception $e) {
                 </div>
             </div>
         </div>
-        
+        <script src="./js/delete_confirm.js"></script>
     </body>
 </html>

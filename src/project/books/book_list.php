@@ -70,7 +70,6 @@ catch (PDOException $e) {
                                     <a href="book_view.php?id=<?= h($book->id) ?>">View</a>/ 
                                     <a href="book_edit.php?id=<?= h($book->id) ?>">Edit</a>/ 
                                     <a id="deleteBtn" href="book_delete.php?id=<?= h($book->id) ?>">Delete</a>
-<script src="js/delete.confirm.js"></script>
                                 </div>
                             </div>
                         </div>
@@ -78,6 +77,6 @@ catch (PDOException $e) {
                 </div>
             <?php } ?>
         </div>
-        
+        <script src="js/delete_confirm.js"></script>        
     </body>
 </html>
