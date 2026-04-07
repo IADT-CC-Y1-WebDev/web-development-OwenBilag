@@ -146,11 +146,12 @@
                 <div class="form-group input">
                     <button id="sbmt_btn" type="submit" class="button">Save Book</button>
                     <div class="button"><a href="book_list.php">Cancel</a></div>
-                </div>    
+                </div>   
+                <script src="js/create.js"></script>                 
             </form>                 
         </div>
     </div>
-    <script src="./js/create.js"></script>
+
     </body>
 </html>
 <?php

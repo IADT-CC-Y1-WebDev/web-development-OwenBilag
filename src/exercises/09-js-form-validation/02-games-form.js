@@ -122,7 +122,7 @@ function onSubmitForm(evt) {
     showErrorSummaryTop();
 
     if(Object.keys(errors).length === 0){
-        // gameForm.submit();     
+        gameForm.submit();     
         alert('Form data valid')   
     }
 };

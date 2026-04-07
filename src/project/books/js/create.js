@@ -1,4 +1,4 @@
-let form = document.getElementById('game_form');
+let form = document.getElementById('create_form');
 let submit = document.getElementById('sbmt_btn');
 
 let titleInput = document.getElementById('title');
@@ -12,7 +12,7 @@ let coverFilenameInput = document.getElementById('cover_filename');
 
 let titleError = document.getElementById('title_error');
 let authorError = document.getElementById('author_error');
-let publisherIdError = document.getElementById('publisher_id_error');
+let publisherIdError = document.getElementById('publisher_error');
 let yearError = document.getElementById('year_error');
 let isbnError = document.getElementById('isbn_error');
 let formatError = document.getElementsByName('format_ids[]_error');
@@ -120,6 +120,6 @@ function onFormSubmit(e) {
     showFieldErrors();
 
     if(Object.keys(errors).length === 0){    
-        alert('Form data valid')   
+        form.submit();
     }
 }
