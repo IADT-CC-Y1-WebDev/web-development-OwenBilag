@@ -4,6 +4,8 @@ require_once 'php/lib/utils.php';
 
 try {
     $books = Book::findAll();
+    $pubs = Publishers::findAll();
+    $forms = Format::findAll();
 } 
 catch (PDOException $e) {
     die("<p>PDO Exception: " . $e->getMessage() . "</p>");
@@ -39,6 +41,28 @@ catch (PDOException $e) {
                                     <label for="title_filter">Title:</label>
                                     <input type="text" id="title_filter" name="title_filter">
                                 </div>
+                                    <div>
+                                        <label for="publisher_filter">Publisher:</label>
+                                        <select id="publisher_filter" name="publisher_filter">
+                                            <option value="">All Publishers</option>
+                                            <?php foreach ($pubs as $pub): ?>
+                                                <option value="<?= htmlspecialchars($pub->name) ?>">
+                                                    <?= htmlspecialchars($pub->name) ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="format_filter">Formats:</label>
+                                        <select id="format_filter" name="format_filter">
+                                            <option value="">All Formats</option>
+                                            <?php foreach ($forms as $form): ?>
+                                                <option value="<?= htmlspecialchars($form->name) ?>">
+                                                    <?= htmlspecialchars($form->name) ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
                                 <div>
                                     <button type="button" id="apply_filters">Apply Filters</button>
                                     <button type="button" id="clear_filters">Clear Filters</button>
