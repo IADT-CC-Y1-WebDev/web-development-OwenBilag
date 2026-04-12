@@ -38,7 +38,7 @@
                 <h1><?php require 'php/inc/flash_message.php'; ?></h1>            
             </div>           
             <?php Book::findAll(); ?>
-            <form id="create_form" action="book_store.php" method="POST" enctype="multipart/form-data"  novalidate>
+            <form class="form" id="create_form" action="book_store.php" method="POST" enctype="multipart/form-data"  novalidate>
 
                 <div>
                     <div class="input">

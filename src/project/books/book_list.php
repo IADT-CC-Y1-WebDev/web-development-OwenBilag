@@ -36,33 +36,43 @@ catch (PDOException $e) {
                     </div>
                     <div class="left">
                         <?php if (!empty($books)) { ?>
-                            <form>   
+                            <form id="filtersForm" class="filters">   
                                 <div>
                                     <label for="title_filter">Title:</label>
                                     <input type="text" id="title_filter" name="title_filter">
                                 </div>
+                                <div>
+                                    <label for="publisher_filter">Publisher:</label>
+                                    <select id="publisher_filter" name="publisher_filter">
+                                        <option value="">All Publishers</option>
+                                        <?php foreach ($pubs as $pub): ?>
+                                            <option value="<?= htmlspecialchars($pub->name) ?>">
+                                                <?= htmlspecialchars($pub->name) ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="format_filter">Formats:</label>
+                                    <select id="format_filter" name="format_filter">
+                                        <option value="">All Formats</option>
+                                        <?php foreach ($forms as $form): ?>
+                                            <option value="<?= htmlspecialchars($form->name) ?>">
+                                                <?= htmlspecialchars($form->name) ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>        
+                                <div class="input">
+                                    <label class="filter-label" for="sort_by">Sort:</label>
                                     <div>
-                                        <label for="publisher_filter">Publisher:</label>
-                                        <select id="publisher_filter" name="publisher_filter">
-                                            <option value="">All Publishers</option>
-                                            <?php foreach ($pubs as $pub): ?>
-                                                <option value="<?= htmlspecialchars($pub->name) ?>">
-                                                    <?= htmlspecialchars($pub->name) ?>
-                                                </option>
-                                            <?php endforeach; ?>
+                                        <select id="sort_by" name="sort_by">
+                                            <option value="title_asc">Title A–Z</option>
+                                            <option value="year_desc">Year (newest first)</option>
+                                            <option value="year_asc">Year (oldest first)</option>
                                         </select>
                                     </div>
-                                    <div>
-                                        <label for="format_filter">Formats:</label>
-                                        <select id="format_filter" name="format_filter">
-                                            <option value="">All Formats</option>
-                                            <?php foreach ($forms as $form): ?>
-                                                <option value="<?= htmlspecialchars($form->name) ?>">
-                                                    <?= htmlspecialchars($form->name) ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
+                                </div>
                                 <div>
                                     <button type="button" id="apply_filters">Apply Filters</button>
                                     <button type="button" id="clear_filters">Clear Filters</button>
@@ -75,14 +85,17 @@ catch (PDOException $e) {
             </div>       
         </div>
 
-
         <div class="container">
             <?php if (empty($books)) { ?>
                 <p>No Books found.</p>
             <?php } else { ?>
-                <div class="width-12 cards">
+                <div id="book_cards" class="width-12 cards">
                     <?php foreach ($books as $book) { ?>
-                        <div class="card">
+                        <div class="card"
+                        data-title="<?= htmlspecialchars($book['title']) ?>"
+                        data-publisher="<?= htmlspecialchars($book['publisher']) ?>"
+                        data-formats="<?= htmlspecialchars($book['formats']) ?>"
+                        data-year="<?= $book['year'] ?>">
                             <div class="top-content">
                                 <h2><?= h($book->title) ?></h2>
                                 <p>Release Year: <?= h($book->year) ?></p>
@@ -101,6 +114,7 @@ catch (PDOException $e) {
                 </div>
             <?php } ?>
         </div>
-        <script src="js/delete_confirm.js"></script>        
+        <script src="js/delete_confirm.js"></script> 
+        <script src="js/filters.js"></script>       
     </body>
 </html>

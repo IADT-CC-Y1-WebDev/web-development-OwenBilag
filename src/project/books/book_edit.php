@@ -48,7 +48,7 @@ catch (PDOException $e) {
                 <div class="error">
                     <h1><?php require 'php/inc/flash_message.php'; ?><h1>
                 </div>                
-                <form id="edit_form" action="book_update.php" method="POST" enctype="multipart/form-data" novalidate>
+                <form class="form" id="edit_form" action="book_update.php" method="POST" enctype="multipart/form-data" novalidate>
                     <div class="input">
                         <input id="id" type="hidden" name="id" value="<?= h($book->id) ?>">
                         <span id="id_error" class="error"></span>
