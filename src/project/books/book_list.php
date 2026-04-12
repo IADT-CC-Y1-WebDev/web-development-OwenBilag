@@ -91,7 +91,7 @@ catch (PDOException $e) {
             <?php } else { ?>
                 <div id="book_cards" class="width-12 cards">
                     <?php foreach ($books as $book) { ?>
-                        <div class="card"
+                        <div class="card"                        
                         data-title="<?= htmlspecialchars($book['title']) ?>"
                         data-publisher="<?= htmlspecialchars($book['publisher']) ?>"
                         data-formats="<?= htmlspecialchars($book['formats']) ?>"
