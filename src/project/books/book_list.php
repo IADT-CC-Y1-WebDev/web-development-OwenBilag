@@ -36,7 +36,7 @@ catch (PDOException $e) {
                     </div>
                     <div class="left">
                         <?php if (!empty($books)) { ?>
-                            <form id="filtersForm" class="filters">   
+                            <form id="filtersForm">   
                                 <div>
                                     <label for="title_filter">Title:</label>
                                     <input type="text" id="title_filter" name="title_filter">
@@ -73,7 +73,7 @@ catch (PDOException $e) {
                                         </select>
                                     </div>
                                 </div>
-                                <div>
+                                <div class="input">
                                     <button type="button" id="apply_filters">Apply Filters</button>
                                     <button type="button" id="clear_filters">Clear Filters</button>
                                 </div>   
@@ -91,11 +91,12 @@ catch (PDOException $e) {
             <?php } else { ?>
                 <div id="book_cards" class="width-12 cards">
                     <?php foreach ($books as $book) { ?>
+                        <?php $pubById = Publishers::findById($book->publisher_id) ?>
                         <div class="card"                        
-                        data-title="<?= htmlspecialchars($book['title']) ?>"
-                        data-publisher="<?= htmlspecialchars($book['publisher']) ?>"
-                        data-formats="<?= htmlspecialchars($book['formats']) ?>"
-                        data-year="<?= $book['year'] ?>">
+                        data-title="<?= ($book->title) ?>"
+                        data-publisher="<?= ($pubById->name) ?>"
+                        data-year="<?= $book->year ?>"
+                        >
                             <div class="top-content">
                                 <h2><?= h($book->title) ?></h2>
                                 <p>Release Year: <?= h($book->year) ?></p>
@@ -114,7 +115,7 @@ catch (PDOException $e) {
                 </div>
             <?php } ?>
         </div>
-        <script src="js/delete_confirm.js"></script> 
-        <script src="js/filters.js"></script>       
+        <script src="./js/delete_confirm.js"></script> 
+        <script src="./js/filters.js"></script>       
     </body>
 </html>

@@ -36,6 +36,10 @@ h1, h2, h3, h4 {
 	justify-content: space-between;
 }
 
+.card.hidden {
+	display: none;
+}
+
 .card h2 {
 	font-size: 28px;
 	line-height: 32px;
@@ -80,6 +84,7 @@ h1, h2, h3, h4 {
 	background-color: #EDC9AF;
 	display: flex;
 	justify-content: space-between;
+	padding: 10px;
 }
 
 .filters .right {

@@ -17,9 +17,7 @@ clearBtn.addEventListener('click', (event) => {
 });
 
 function applyFilters() {
-    // console.log("Applying filters");
     let filters = getFilters();
-    // let matches = [];
     for (let i = 0; i != cards.length; i++) {
         let card = cards[i];
         let match = cardMatches(card, filters);
