@@ -54,11 +54,8 @@
                     <div class="input">
                         <label class="special" for="author">Author:</label>
                         <input type="text" id="author" name="author" value="<?= h(old('author')) ?>">
-                        <span id="author_error" class="error"></span>
+                        <span id="author_error" class="error"><?= error('author') ?></span>
                     </div>
-                    <!-- <?php if (error('author')): ?>
-                    <p class="error"><?= error('author') ?></p>
-                    <?php endif; ?> -->
                 </div>
 
                 <div>
@@ -73,9 +70,8 @@
                                 <?php } ?>
                             </select>
                         </div>
-                        <span id="publisher_error" class="error"></span>
-                    </div>                
-                    <!-- <p class="error"><?= error('publisher_id') ?></p> -->                
+                        <span id="publisher_error" class="error"><?= error('publisher_id') ?></span>
+                    </div>                  
                 </div>
 
                 <div>
@@ -83,10 +79,7 @@
                         <label class="special" for="year">Year:</label>
                         <input type="text" id="year" name="year" value="<?= h(old('year')) ?>">
                     </div>
-                    <!-- <?php if (error('year')): ?>
-                    <p class="error"><?= error('year') ?></p>
-                    <?php endif; ?> -->
-                    <span id="year_error" class="error"></span>
+                    <span id="year_error" class="error"><?= error('year') ?></span>
                 </div>
 
                 <div>
@@ -94,10 +87,7 @@
                         <label class="special" for="isbn">ISBN:</label>
                         <input type="text" id="isbn" name="isbn" value="<?= h(old('isbn')) ?>">
                     </div>                
-                    <!-- <?php if (error('isbn')): ?>
-                    <p class="error"><?= error('isbn') ?></p>
-                    <?php endif; ?>-->
-                    <span id="isbn_error" class="error"></span>
+                    <span id="isbn_error" class="error"><?= error('isbn') ?></span>
                 </div>
 
                 <div>
@@ -117,8 +107,7 @@
                             <?php } ?>
                         </div>
                     </div>                
-                    <!-- <p class="error"><?= error('format_ids') ?></p>-->
-                    <span id="formats_error" class="error"></span>
+                    <span id="formats_error" class="error"><?= error('format_ids') ?></span>
                 </div>
 
                 <div>
@@ -126,10 +115,7 @@
                         <label class="special" for="description">Description:</label>
                         <textarea id="description" name="description" rows="5"><?= h(old('description')) ?></textarea>
                     </div>
-                    <!-- <?php if (error('description')): ?>
-                    <p class="error"><?= error('description') ?></p>
-                    <?php endif; ?>-->
-                    <span id="description_error" class="error"></span>
+                    <span id="description_error" class="error"><?= error('description') ?></span>
                 </div>
                 
                 <div>
@@ -139,10 +125,7 @@
                             <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
                         </div>  
                     </div>
-                    <!-- <?php if (error('cover_filename')): ?>
-                        <p class="error"><?= error('cover_filename') ?></p>
-                    <?php endif; ?>-->
-                    <span id="cover_error" class="error"></span>
+                    <span id="cover_error" class="error"><?= error('cover_filename') ?></span>
                 </div>
 
                 <div class="form-group input">

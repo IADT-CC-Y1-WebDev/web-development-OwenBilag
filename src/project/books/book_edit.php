@@ -51,22 +51,20 @@ catch (PDOException $e) {
                 <form class="form" id="edit_form" action="book_update.php" method="POST" enctype="multipart/form-data" novalidate>
                     <div class="input">
                         <input id="id" type="hidden" name="id" value="<?= h($book->id) ?>">
-                        <span id="id_error" class="error"></span>
+                        <span id="id_error" class="error"><?= error('id') ?></span>
                     </div>
                     <div class="input">
                         <label class="special" for="title">Title:</label>
                         <div>
                             <input type="text" id="title" name="title" value="<?= old('title', $book->title) ?>" required>
-                            <!-- <p class="error"><?= error('title') ?></p> -->
-                             <span id="title_error" class="error"></span>
+                            <span id="title_error" class="error"></span>
                         </div>
                     </div>
                     <div class="input">
                         <label class="special" for="author">Author:</label>
                         <div>
                             <input type="text" id="author" name="author" value="<?= old('author', $book->author) ?>" required>
-                            <!-- <p class="error"><?= error('author') ?></p> -->
-                             <span id="author_error" class="error"></span>
+                            <span id="author_error" class="error"><?= error('author') ?></span>
                         </div>
                     </div>
                     <div class="input">
@@ -79,8 +77,7 @@ catch (PDOException $e) {
                                     </option>
                                 <?php } ?>
                             </select>
-                            <!-- <p class="error"><?= error('publisher_id') ?></p> -->
-                             <span id="publisher_error" class="error"></span>
+                            <span id="publisher_error" class="error"><?= error('publisher_id') ?></span>
                         </div>
                     </div>
                     <div class="input">
@@ -94,8 +91,7 @@ catch (PDOException $e) {
                         <label class="special" for="isbn">ISBN:</label>
                         <div>
                             <input type="text" id="isbn" name="isbn" value="<?= old('isbn', $book->isbn) ?>" required>
-                            <!-- <p class="error"><?= error('isbn') ?></p> -->
-                             <span id="isbn_error" class="error"></span>
+                            <span id="isbn_error" class="error"><?= error('isbn') ?></span>
                         </div>
                     </div>            
                     <div class="input">
@@ -113,15 +109,13 @@ catch (PDOException $e) {
                                 </div>
                             <?php } ?>
                         </div>
-                        <!-- <p class="error"><?= error('format_ids') ?></p> -->
-                         <span id="format_ids[]_error" class="error"></span>
+                         <span id="format_ids[]_error" class="error"><?= error('format_ids') ?></span>
                     </div>
                     <div class="input">
                         <label class="special" for="description">Description:</label>
                         <div>
                             <textarea id="description" name="description" required><?= old('description', $book->description) ?></textarea>
-                            <!-- <p class="error"><?= error('description') ?></p> -->
-                             <span id="description_error" class="error"></span>
+                             <span id="description_error" class="error"><?= error('description') ?></span>
                         </div>
                     </div>
                     <div><img src="images/<?= $book->cover_filename ?>" /></div>
@@ -129,7 +123,6 @@ catch (PDOException $e) {
                         <label class="special" for="cover_filename">Image:</label>
                         <div>
                             <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
-                            <!-- <p class="error"></p> -->
                              <span id="cover_error" class="error"><?= error('cover_filename') ?></span>
                         </div>
                     </div>
