@@ -20,68 +20,70 @@ catch (PDOException $e) {
     <body>
         <div class="head">
             <div class="container">
-                <div class="width-12 main">
-                    <h1>Book Storage</h1>
-                    <?php require 'php/inc/flash_message.php'; ?>                
+                <div class="width-12">
+                    <?php require 'php/inc/flash_message.php'; ?>
                 </div>
-            <div class="width-12">
-                <div class="filters">
-                    <div class="right">
-                        <div class="button">
-                            <a href="index.php">Home</a>
-                        </div> 
-                        <div class="button">
-                            <a href="book_create.php">Add New Book</a>
-                        </div> 
-                    </div>
-                    <div class="left">
-                        <?php if (!empty($books)) { ?>
-                            <form id="filtersForm">   
-                                <div>
-                                    <label for="title_filter">Title:</label>
-                                    <input type="text" id="title_filter" name="title_filter">
-                                </div>
-                                <div>
-                                    <label for="publisher_filter">Publisher:</label>
-                                    <select id="publisher_filter" name="publisher_filter">
-                                        <option value="">All Publishers</option>
-                                        <?php foreach ($pubs as $pub): ?>
-                                            <option value="<?= htmlspecialchars($pub->name) ?>">
-                                                <?= htmlspecialchars($pub->name) ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="format_filter">Formats:</label>
-                                    <select id="format_filter" name="format_filter">
-                                        <option value="">All Formats</option>
-                                        <?php foreach ($forms as $form): ?>
-                                            <option value="<?= htmlspecialchars($form->name) ?>">
-                                                <?= htmlspecialchars($form->name) ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>        
-                                <div class="input">
-                                    <label class="filter-label" for="sort_by">Sort:</label>
+                <div class="width-12 main">
+                    <h1>Book Storage</h1>                
+                </div>
+                <div class="width-12">
+                    <div class="filters">
+                        <div class="right">
+                            <div class="button">
+                                <a href="index.php">Home</a>
+                            </div> 
+                            <div class="button">
+                                <a href="book_create.php">Add New Book</a>
+                            </div> 
+                        </div>
+                        <div class="left">
+                            <?php if (!empty($books)) { ?>
+                                <form id="filtersForm">   
                                     <div>
-                                        <select id="sort_by" name="sort_by">
-                                            <option value="title_asc">Title A–Z</option>
-                                            <option value="year_desc">Year (newest first)</option>
-                                            <option value="year_asc">Year (oldest first)</option>
+                                        <label for="title_filter">Title:</label>
+                                        <input type="text" id="title_filter" name="title_filter">
+                                    </div>
+                                    <div>
+                                        <label for="publisher_filter">Publisher:</label>
+                                        <select id="publisher_filter" name="publisher_filter">
+                                            <option value="">All Publishers</option>
+                                            <?php foreach ($pubs as $pub): ?>
+                                                <option value="<?= htmlspecialchars($pub->name) ?>">
+                                                    <?= htmlspecialchars($pub->name) ?>
+                                                </option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="input">
-                                    <button type="button" id="apply_filters">Apply Filters</button>
-                                    <button type="button" id="clear_filters">Clear Filters</button>
-                                </div>   
-                            </form>
-                        <?php } ?> 
+                                    <div>
+                                        <label for="format_filter">Formats:</label>
+                                        <select id="format_filter" name="format_filter">
+                                            <option value="">All Formats</option>
+                                            <?php foreach ($forms as $form): ?>
+                                                <option value="<?= htmlspecialchars($form->name) ?>">
+                                                    <?= htmlspecialchars($form->name) ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>        
+                                    <div class="input">
+                                        <label class="filter-label" for="sort_by">Sort:</label>
+                                        <div>
+                                            <select id="sort_by" name="sort_by">
+                                                <option value="title_asc">Title A–Z</option>
+                                                <option value="year_desc">Year (newest first)</option>
+                                                <option value="year_asc">Year (oldest first)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="input">
+                                        <button type="button" id="apply_filters">Apply Filters</button>
+                                        <button type="button" id="clear_filters">Clear Filters</button>
+                                    </div>   
+                                </form>
+                            <?php } ?> 
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>       
         </div>
 
@@ -89,7 +91,7 @@ catch (PDOException $e) {
             <?php if (empty($books)) { ?>
                 <p>No Books found.</p>
             <?php } else { ?>
-                <div id="book_cards" class="width-12 cards">
+                <div id="book_cards" class="width-12 cards delete">
                     <?php foreach ($books as $book) { ?>
                         <?php $pubById = Publishers::findById($book->publisher_id) ?>
                         <div class="card"                        
@@ -107,7 +109,7 @@ catch (PDOException $e) {
                                 <div class="actions">
                                     <a href="book_view.php?id=<?= h($book->id) ?>">View</a>/ 
                                     <a href="book_edit.php?id=<?= h($book->id) ?>">Edit</a>/ 
-                                    <a id="deleteBtn" href="book_delete.php?id=<?= h($book->id) ?>">Delete</a>
+                                    <a class="deleteBtn" href="book_delete.php?id=<?= h($book->id) ?>">Delete</a>
                                 </div>
                             </div>
                         </div>

@@ -10,6 +10,8 @@
     session_start();
     }
 
+    // dd($_SESSION);
+
     try {
     // $genres = Genre::findAll();
     $formats = Format::findAll();
@@ -30,13 +32,13 @@
 </head>
 <body>
     <div class="container">
+        <div class="width-12">
+            <?php require 'php/inc/flash_message.php'; ?>
+        </div>
         <div class="width-3">
         </div>
         <div class="width-6 forms">
             <h1>Add New Book</h1>
-            <div class="error">
-                <h1><?php require 'php/inc/flash_message.php'; ?></h1>            
-            </div>           
             <?php Book::findAll(); ?>
             <form class="form" id="create_form" action="book_store.php" method="POST" enctype="multipart/form-data"  novalidate>
 

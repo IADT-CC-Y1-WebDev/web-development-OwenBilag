@@ -42,12 +42,12 @@ catch (PDOException $e) {
     </head>
     <body>
         <div class="container">
+            <div class="width-12">
+                <?php require 'php/inc/flash_message.php'; ?>
+            </div>            
             <div class="width-3"></div>
             <div class="width-6 forms">
-                <h1>Edit Book</h1>
-                <div class="error">
-                    <h1><?php require 'php/inc/flash_message.php'; ?><h1>
-                </div>                
+                <h1>Edit Book</h1>  
                 <form class="form" id="edit_form" action="book_update.php" method="POST" enctype="multipart/form-data" novalidate>
                     <div class="input">
                         <input id="id" type="hidden" name="id" value="<?= h($book->id) ?>">
@@ -129,8 +129,8 @@ catch (PDOException $e) {
                         <label class="special" for="cover_filename">Image:</label>
                         <div>
                             <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
-                            <!-- <p class="error"><?= error('cover_filename') ?></p> -->
-                             <span id="cover_error" class="error"></span>
+                            <!-- <p class="error"></p> -->
+                             <span id="cover_error" class="error"><?= error('cover_filename') ?></span>
                         </div>
                     </div>
                     <div class="input">

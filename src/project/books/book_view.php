@@ -34,7 +34,7 @@ catch (Exception $e) {
     </head>
     <body>
         <div class="container">
-            <div class="width-12 header">
+            <div class="width-12">
                 <?php require 'php/inc/flash_message.php'; ?>
             </div>
         </div>
@@ -46,7 +46,7 @@ catch (Exception $e) {
 
                         <div class="actions">
                             <a href="book_edit.php?id=<?= h($book->id) ?>">Edit</a> /
-                            <a id="deleteBtn" href="book_delete.php?id=<?= h($book->id) ?>">Delete</a> /
+                            <a class="delete deleteBtn" href="book_delete.php?id=<?= h($book->id) ?>">Delete</a> /
                             <a href="book_list.php">Back</a>
                         </div>
                     </div>
