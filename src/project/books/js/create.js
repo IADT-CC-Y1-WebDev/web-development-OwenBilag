@@ -64,6 +64,10 @@ function onFormSubmit(e) {
     let titleMax = titleInput.dataset.maxlength || 255;
 
     let authorMax = authorInput.dataset.maxlength || 255;
+
+    let isbnMin = isbnInput.dataset.minlength || 13;
+    let isbnMax = isbnInput.dataset.maxlength || 13;
+
     let descMin = 10;
 
     //title
@@ -91,6 +95,16 @@ function onFormSubmit(e) {
     if(!isRequired(yearInput.value)){
         addError('year', 'Year is required');
     };
+
+    //isbn
+    if(!isRequired(isbnInput.value)){
+        addError('isbn', 'Isbn is required');
+    }else if(!isMaxLength(isbnInput.value, isbnMax)){
+        addError('isbn', 'Isbn must not exceed' + isbnMax + 'charachters');
+    }else if(!isMinLength(isbnInput.value, isbnMin)){
+        addError('isbn', 'Isbn must not exceed' + isbnMin + 'charachters');
+    };
+
 
     //formats
     let formatCheck = false;

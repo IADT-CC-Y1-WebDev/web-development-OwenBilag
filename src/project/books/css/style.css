@@ -254,11 +254,6 @@ h1 {
 	font-size: 15px;
 }
 
-.error h1 {
-	font-size: 30px;
-	font-weight: 800;
-}
-
 .index {
 	background-color: #714423;
 	padding: 30px;
@@ -330,24 +325,6 @@ h1 {
     border-color: #f5c6cb;
     color: #721c24;
 }
-
-/* .flash-message {
-	background-color: #fff;
-	padding: 10px;
-	border: #000;
-	border-width: 2px;
-	border-radius: 10px;
-}
-
-.flash-message h1 {
-	color: #fff;
-	font-size: 20px;
-}
-
-.error .flash-message {
-	background-color: red;
-	color: #fff;
-} */
 
 .forms {
 	background-color: #714423;
