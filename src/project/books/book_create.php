@@ -95,7 +95,7 @@
                         <label class="special">Current Formats:</label><br>
                         <div>
                             <?php foreach ($formats as $format) { ?>
-                                <div>
+                                <div class="checkbox">
                                     <input type="checkbox" 
                                         id="format_<?= h($format->id) ?>" 
                                         name="format_ids[]" 
