@@ -34,7 +34,7 @@ h1, h2, h3, h4 {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	transition: box-shadow 2s;
+	transition: box-shadow .2s;
 }
 
 .card:hover {
@@ -68,13 +68,13 @@ h1, h2, h3, h4 {
 
 .card .actions a {
 	font-weight: 600;
-	color: #606C38;
+	color: #7c8d45;
 	font-size: 13px;
 	text-transform: uppercase;
 }
 
 .card .actions a:hover {
-	color: #283618;
+	color: #466128;
 }
 
 .card img {
@@ -112,16 +112,18 @@ h1, h2, h3, h4 {
 	font-size: 12px;
 	height: 30px;
 	padding: 5px;
-	background-color: #e7bfa3;
+	background-color: #6e3f15;
 	border-color: #44270D;
+	color: #ebdacf;
 }
 
 .filters form select {
 	font-size: 12px;
 	height: 30px;
 	padding: 5px;
-	background-color: #e7bfa3;
+	background-color: #744216;
 	border-color: #44270D;
+	color: #ebdacf;
 }
 
 .filters .left button {
@@ -171,10 +173,10 @@ h1, h2, h3, h4 {
 }
 
 .hCard h2 {
-	font-size: 36px;
+	font-size: 50px;
 	line-height: 45px;
 	font-family: "IBM Plex Serif";
-	margin-bottom: 12px;
+	margin-bottom: 30px;
 }
 
 .hCard p {
@@ -190,13 +192,13 @@ h1, h2, h3, h4 {
 
 .hCard .actions a {
 	font-weight: 600;
-	color: #1c2710;
+	color: #7c8d45;
 	font-size: 13px;
 	text-transform: uppercase;
 }
 
 .hCard .actions a:hover {
-	color:#606C38;
+	color: #466128;
 }
 
 .hCard img {
