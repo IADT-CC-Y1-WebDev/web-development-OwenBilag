@@ -15,7 +15,7 @@ let authorError = document.getElementById('author_error');
 let publisherIdError = document.getElementById('publisher_error');
 let yearError = document.getElementById('year_error');
 let isbnError = document.getElementById('isbn_error');
-let formatError = document.getElementsByName('format_ids[]_error');
+let formatError = document.getElementsById('formats_error');
 let descriptionError = document.getElementById('description_error');
 let coverFilenameError = document.getElementById('cover_error');
 

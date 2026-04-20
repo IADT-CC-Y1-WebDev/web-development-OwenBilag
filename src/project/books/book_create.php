@@ -122,7 +122,7 @@
                     <div class="input">
                         <label class="special" for="cover_filename">Cover file image:</label>
                         <div>
-                            <input type="file" id="cover_filename" name="cover_filename" accept="cover_filename/*">
+                            <input type="file" id="cover_filename" name="cover_filename" accept="images/*">
                         </div>  
                     </div>
                     <span id="cover_error" class="error"><?= error('cover_filename') ?></span>

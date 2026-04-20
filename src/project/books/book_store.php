@@ -63,7 +63,7 @@
         }
 
         // Process the uploaded image (validation already completed)
-        $uploader = new ImageUpload();
+        $uploader = new ImageUpload(__DIR__.'/images/');
         $cover_filename = $uploader->process($_FILES['cover_filename']);
 
         if (!$cover_filename) {

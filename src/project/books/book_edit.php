@@ -57,7 +57,7 @@ catch (PDOException $e) {
                         <label class="special" for="title">Title:</label>
                         <div>
                             <input type="text" id="title" name="title" value="<?= old('title', $book->title) ?>" required>
-                            <span id="title_error" class="error"></span>
+                            <span id="title_error" class="error"><?= error('title') ?></span>
                         </div>
                     </div>
                     <div class="input">
