@@ -9,7 +9,6 @@ let yearInput = document.getElementById('year');
 let isbnInput = document.getElementById('isbn');
 let formatInput = document.getElementsByName('format_ids[]');
 let descriptionInput = document.getElementById('description');
-let coverFilenameInput = document.getElementById('cover_filename');
 
 let idError = document.getElementById('id_error');
 let titleError = document.getElementById('title_error');
@@ -19,7 +18,6 @@ let yearError = document.getElementById('year_error');
 let isbnError = document.getElementById('isbn_error');
 let formatError = document.getElementsByName('format_ids[]_error');
 let descriptionError = document.getElementById('description_error');
-let coverFilenameError = document.getElementById('cover_error');
 
 //creating and showing errors
 let errors = {};
@@ -37,7 +35,6 @@ function showFieldErrors() {
     isbnError.innerHTML = errors.isbn || '';
     formatError.innerHTML = errors.format || '';
     descriptionError.innerHTML = errors.description || '';
-    coverFilenameError.innerHTML = errors.cover_filename || '';
 
     console.log(errors);
 }
@@ -117,11 +114,6 @@ function onFormSubmit(e) {
         addError('description', 'Description is required');
     } else if(!isMinLength(descriptionInput.value, descMin)){
         addError('description', 'Description must be atleast ' + descMin + ' charachters');
-    }
-
-    //Cover File
-    if(coverFilenameInput.files.length === 0){
-        addError('cover_filename', 'Cover is required')
     }
 
     //show errors

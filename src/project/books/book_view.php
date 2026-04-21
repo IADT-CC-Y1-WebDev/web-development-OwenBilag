@@ -38,28 +38,26 @@ catch (Exception $e) {
                 <?php require 'php/inc/flash_message.php'; ?>
             </div>
         </div>
-        <div class="container">
-            <div class="width-12">
-                <div class="hCard">
-                    <div class="bottom-content">
-                        <img src="images/<?= htmlspecialchars($book->cover_filename) ?>" />
+        <div class="view_card">
+            <div class="hCard">
+                <div class="bottom-content">
+                    <img src="images/<?= htmlspecialchars($book->cover_filename) ?>" />
 
-                        <div class="actions">
-                            <a href="book_edit.php?id=<?= h($book->id) ?>">Edit</a> /
-                            <a class="delete deleteBtn" href="book_delete.php?id=<?= h($book->id) ?>">Delete</a> /
-                            <a href="book_list.php">Back</a>
-                        </div>
+                    <div class="actions">
+                        <a href="book_edit.php?id=<?= h($book->id) ?>">Edit</a> /
+                        <a class="delete deleteBtn" href="book_delete.php?id=<?= h($book->id) ?>">Delete</a> /
+                        <a href="book_list.php">Back</a>
                     </div>
+                </div>
 
-                    <div class="bottom-content">
-                        <h2><?= htmlspecialchars($book->title)??"Not Found" ?></h2>
-                        <p>Release Year: <?= htmlspecialchars($book->year)??"Not Found" ?></p>
-                        <p>Author: <?= htmlspecialchars($book->author)??"Not Found" ?></p>
-                        <p>Publisher: <?= htmlspecialchars($publishers->name)??"Not Found" ?></p>
-                        <p>Formats: <?= implode(', ', $formatNames)??"Not Found" ?></p>
-                        <p>isbn: <?= htmlspecialchars($book->isbn)??"Not Found" ?></p>
-                        <p>Description:<br /><?= nl2br(htmlspecialchars($book->description))??"Not Found" ?></p>
-                    </div>
+                <div class="bottom-content">
+                    <h2><?= htmlspecialchars($book->title)??"Not Found" ?></h2>
+                    <p>Release Year: <?= htmlspecialchars($book->year)??"Not Found" ?></p>
+                    <p>Author: <?= htmlspecialchars($book->author)??"Not Found" ?></p>
+                    <p>Publisher: <?= htmlspecialchars($publishers->name)??"Not Found" ?></p>
+                    <p>Formats: <?= implode(', ', $formatNames)??"Not Found" ?></p>
+                    <p>isbn: <?= htmlspecialchars($book->isbn)??"Not Found" ?></p>
+                    <p>Description:<br /><?= nl2br(htmlspecialchars($book->description))??"Not Found" ?></p>
                 </div>
             </div>
         </div>

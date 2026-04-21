@@ -69,8 +69,8 @@
                                     </option>
                                 <?php } ?>
                             </select>
+                            <span id="publisher_error" class="error"><?= error('publisher_id') ?></span>
                         </div>
-                        <span id="publisher_error" class="error"><?= error('publisher_id') ?></span>
                     </div>                  
                 </div>
 
@@ -78,16 +78,16 @@
                     <div class="input">
                         <label class="special" for="year">Year:</label>
                         <input type="text" id="year" name="year" value="<?= h(old('year')) ?>">
+                        <span id="year_error" class="error"><?= error('year') ?></span>
                     </div>
-                    <span id="year_error" class="error"><?= error('year') ?></span>
                 </div>
 
                 <div>
                     <div class="input">
                         <label class="special" for="isbn">ISBN:</label>
                         <input type="text" id="isbn" name="isbn" value="<?= h(old('isbn')) ?>">
+                        <span id="isbn_error" class="error"><?= error('isbn') ?></span>
                     </div>                
-                    <span id="isbn_error" class="error"><?= error('isbn') ?></span>
                 </div>
 
                 <div>
@@ -106,16 +106,16 @@
                                 </div>
                             <?php } ?>
                         </div>
+                        <span id="formats_error" class="error"><?= error('format_ids') ?></span>
                     </div>                
-                    <span id="formats_error" class="error"><?= error('format_ids') ?></span>
                 </div>
 
                 <div>
                     <div class="input">
                         <label class="special" for="description">Description:</label>
                         <textarea id="description" name="description" rows="5"><?= h(old('description')) ?></textarea>
+                        <span id="description_error" class="error"><?= error('description') ?></span>
                     </div>
-                    <span id="description_error" class="error"><?= error('description') ?></span>
                 </div>
                 
                 <div>
@@ -124,8 +124,8 @@
                         <div>
                             <input type="file" id="cover_filename" name="cover_filename" accept="images/*">
                         </div>  
+                        <span id="cover_error" class="error"><?= error('cover_filename') ?></span>
                     </div>
-                    <span id="cover_error" class="error"><?= error('cover_filename') ?></span>
                 </div>
 
                 <div class="form-group input">

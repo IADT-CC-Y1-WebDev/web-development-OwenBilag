@@ -84,7 +84,7 @@ catch (PDOException $e) {
                         <label class="special" for="year">Year:</label>
                         <div>
                             <input type="text" id="year" name="year" value="<?= old('year', $book->year) ?>" required>
-                            <p class="error"><?= error('year') ?></p>
+                            <span class="error"><?= error('year') ?></span>
                         </div>
                     </div>        
                     <div class="input">
@@ -115,7 +115,7 @@ catch (PDOException $e) {
                         <label class="special" for="description">Description:</label>
                         <div>
                             <textarea id="description" name="description" required><?= old('description', $book->description) ?></textarea>
-                             <span id="description_error" class="error"><?= error('description') ?></span>
+                            <span id="description_error" class="error"><?= error('description') ?></span>
                         </div>
                     </div>
                     <div><img src="images/<?= $book->cover_filename ?>" /></div>

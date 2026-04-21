@@ -42,7 +42,7 @@ try {
         'isbn' =>  "required|noempty|min:13|max:15",
         'format_ids' => "required|noempty|array|minvalue:1|maxvalue:4",
         'description' => "required|noempty|min:10",
-        'cover_filename' => "required|file|image|mimes:jpg,jpeg,png|max_file_size:5242880"
+        'cover_filename' => "file|image|mimes:jpg,jpeg,png|max_file_size:5242880"
     ];
 
     // Validate all data (including file)

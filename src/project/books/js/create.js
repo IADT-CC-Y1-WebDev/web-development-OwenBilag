@@ -15,7 +15,7 @@ let authorError = document.getElementById('author_error');
 let publisherIdError = document.getElementById('publisher_error');
 let yearError = document.getElementById('year_error');
 let isbnError = document.getElementById('isbn_error');
-let formatError = document.getElementsById('formats_error');
+let formatError = document.getElementById('formats_error');
 let descriptionError = document.getElementById('description_error');
 let coverFilenameError = document.getElementById('cover_error');
 
@@ -32,7 +32,7 @@ function showFieldErrors() {
     publisherIdError.innerHTML = errors.publisher_id || '';
     yearError.innerHTML = errors.year || '';
     isbnError.innerHTML = errors.isbn || '';
-    formatError.innerHTML = errors.format || '';
+    formatError.innerHTML = errors.format_ids || '';
     descriptionError.innerHTML = errors.description || '';
     coverFilenameError.innerHTML = errors.cover_filename || '';
 

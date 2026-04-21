@@ -165,6 +165,11 @@ h1, h2, h3, h4 {
 	background-color: #87551D;
 }
 
+.view_card {
+	display: flex;
+	justify-content: center;
+}
+
 .hCard {
 	background-color: #714423;
 	padding: 16px;
@@ -172,9 +177,8 @@ h1, h2, h3, h4 {
 	border: 1px solid #2f1b12;
 	width: 800px;
 	display: flex;
-	gap: 20px;
+	gap: 40px;
 	flex-direction: row;
-	justify-content: space-between;
 	color: #CABA9C;
 }
 
@@ -193,7 +197,7 @@ h1, h2, h3, h4 {
 .hCard .actions {
 	display: flex;
 	gap: 8px;
-	justify-content: flex-end;
+	justify-content: flex-start;
 }
 
 .hCard .actions a {
@@ -208,11 +212,11 @@ h1, h2, h3, h4 {
 }
 
 .hCard img {
-	width: 340px;
+	width: fit-content;
 	margin-bottom: 10px;
 	object-fit: cover;
 	border: 1px solid #2f1b12;
-	height: 340px;
+	max-height: 500px;
 }
 
 form {
