@@ -35,8 +35,14 @@ catch (PDOException $e) {
                             <div class="button">
                                 <a href="book_create.php">Add New Book</a>
                             </div> 
+                            <div class="button">
+                                <a href="#" id="filterToggle">Filters</a>
+                            </div> 
                         </div>
-                        <div class="left">
+                    </div>
+                </div>
+                <div class="width-12">
+                    <div id="filterPart" class="filters hidden">
                             <?php if (!empty($books)) { ?>
                                 <form id="filtersForm">   
                                     <div>
@@ -75,14 +81,13 @@ catch (PDOException $e) {
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="input">
+                                    <div class="left">
                                         <button type="button" id="apply_filters">Apply Filters</button>
                                         <button type="button" id="clear_filters">Clear Filters</button>
                                     </div>   
                                 </form>
                             <?php } ?> 
-                        </div>
-                    </div>
+                </div>
                 </div>
             </div>       
         </div>
@@ -124,6 +129,7 @@ catch (PDOException $e) {
             <?php } ?>
         </div>
         <script src="./js/delete_confirm.js"></script> 
-        <script src="./js/filters.js"></script>       
+        <script src="./js/filters.js"></script>   
+        <script src="./js/filterTog.js"></script>     
     </body>
 </html>
