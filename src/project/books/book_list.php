@@ -55,8 +55,8 @@ catch (PDOException $e) {
                                         </select>
                                     </div>
                                     <div>
-                                        <label for="format_filter">Formats:</label>
-                                        <select id="format_filter" name="format_filter">
+                                        <label for="formats_filter">Formats:</label>
+                                        <select id="formats_filter" name="formats_filter">
                                             <option value="">All Formats</option>
                                             <?php foreach ($forms as $form): ?>
                                                 <option value="<?= htmlspecialchars($form->name) ?>">
@@ -93,10 +93,16 @@ catch (PDOException $e) {
             <?php } else { ?>
                 <div id="book_cards" class="width-12 cards delete">
                     <?php foreach ($books as $book) { ?>
-                        <?php $pubById = Publishers::findById($book->publisher_id) ?>
+                        <?php $pubById = Publishers::findById($book->publisher_id);
+                        $formById = Format:: findByBook($book->id);?>
+
                         <div class="card"                        
                         data-title="<?= ($book->title) ?>"
                         data-publisher="<?= ($pubById->name) ?>"
+                        data-formats="<?php
+                                        foreach ($formById as $format) {
+                                            echo htmlspecialchars($format->name) . " ";
+                                        }; ?>"
                         data-year="<?= $book->year ?>"
                         >
                             <div class="top-content">
